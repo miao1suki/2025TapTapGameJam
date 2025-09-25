@@ -1,3 +1,0 @@
-repository "2025TapTap@tj_meowsuki@cloud.cn"
-  path "/"
-    smartbranch "/main/像素化渲染管线"
