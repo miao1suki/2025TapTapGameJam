@@ -5,17 +5,17 @@ public class MainCam : MonoBehaviour
 {
     [SerializeField] private Camera _rt_cam;
     [SerializeField] private Camera _this;
-    
-    
+
+
     private void OnValidate()
     {
-        _rt_cam.orthographicSize = _this.orthographicSize;
+        _this.orthographicSize = _rt_cam.orthographicSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _rt_cam.orthographicSize = _this.orthographicSize;
+        _this.orthographicSize = _rt_cam.orthographicSize;
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
