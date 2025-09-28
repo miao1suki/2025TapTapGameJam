@@ -5,13 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [ExecuteAlways] // 编辑器和运行时都执行
-    [SerializeField]
-    private RenderSettingsSO _renderseter;
+    [SerializeField] private RenderSettingsSO _renderseter;
+    [SerializeField] private int fps = 15;
     public Camera current_RT_cam;
     private void OnValidate()
     {
         //Inspector修改参数时触发
         setCamSize();
+    }
+    private void Awake()
+    {
+        Application.targetFrameRate = fps;
     }
     void Start()
     {
