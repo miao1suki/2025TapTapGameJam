@@ -48,13 +48,17 @@ Material:
     m_Floats:
     - _Depth: 0.03
     - _Displacement: 1
-    - _NormalStrength: 0.3
+    - _NormalStrength: 0.04
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _RefractionScale: 1.2
+    - _RefractionSpeed: 0.02
+    - _RefractionStrength: 2.94
+    - _Smoothness: 0.67
     - _Strength: 0.199
     m_Colors:
-    - _DeepColor: {r: 0.10588237, g: 0.5333334, b: 0.635294, a: 0.8156863}
-    - _ShallowColor: {r: 0.07450979, g: 0.8862745, b: 1, a: 0.5607843}
+    - _DeepColor: {r: 0, g: 0.73684216, b: 1, a: 0.07058824}
+    - _ShallowColor: {r: 0.49485773, g: 0.7664081, b: 0.8238993, a: 0.1254902}
   m_BuildTextureStacks: []
 --- !u!114 &94628314895841457
 MonoBehaviour:
