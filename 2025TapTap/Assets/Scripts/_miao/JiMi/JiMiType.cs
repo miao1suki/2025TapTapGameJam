@@ -1,11 +1,13 @@
 // JiMi 类型定义
-
-public enum JiMiType
+namespace miao
 {
-    Normal,         // 普通哈基米
-    ZhiShengJi,     // 直升基
-    DingDongJi,     // 盯洞基
-    HaNiuMo,        // 哈牛魔
+    public enum JiMiType
+    {
+        Normal,         // 普通哈基米
+        ZhiShengJi,     // 直升基
+        DingDongJi,     // 盯洞基
+        HaNiuMo,        // 哈牛魔
+    }
 }
 
 /*

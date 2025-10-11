@@ -1,24 +1,26 @@
 using UnityEngine;
-
-
-[CreateAssetMenu(menuName = "JiMi/UnlockConditions/Default")]
-public class Default_UnlockCondition : JiMiUnlockCondition
+namespace miao
 {
 
-    public override void OnEventTriggered(Player player)
+    [CreateAssetMenu(menuName = "JiMi/UnlockConditions/Default")]
+    public class Default_UnlockCondition : JiMiUnlockCondition
     {
-        //被调用的检测
- 
-    }
 
-    public override bool IsSatisfied(Player player)
-    {
-        //满足的条件
-        return true;
-    }
+        public override void OnEventTriggered(Player player)
+        {
+            //被调用的检测
 
-    public override string GetProgressDescription()
-    {
-        return " 默认基米无需解锁";
+        }
+
+        public override bool IsSatisfied(Player player)
+        {
+            //满足的条件
+            return true;
+        }
+
+        public override string GetProgressDescription()
+        {
+            return " 默认基米无需解锁";
+        }
     }
 }

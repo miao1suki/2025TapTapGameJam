@@ -1,27 +1,29 @@
 using UnityEngine;
 
-
-[CreateAssetMenu(menuName = "JiMi/UnlockConditions/HaNiuMo")]
-public class HaNiuMo_UnlockCondition : JiMiUnlockCondition
+namespace miao
 {
-
-    [SerializeField] private int requiredCount = 10;
-
-    public override void OnEventTriggered(Player player)
+    [CreateAssetMenu(menuName = "JiMi/UnlockConditions/HaNiuMo")]
+    public class HaNiuMo_UnlockCondition : JiMiUnlockCondition
     {
-        //被调用的检测
 
-    }
+        [SerializeField] private int requiredCount = 10;
 
-    public override bool IsSatisfied(Player player)
-    {
-        //满足的条件
-        return Player.Instance.haQiCount >= requiredCount;
-        
-    }
+        public override void OnEventTriggered(Player player)
+        {
+            //被调用的检测
 
-    public override string GetProgressDescription()
-    {
-        return $"哈气次数 {Player.Instance.haQiCount}/{requiredCount}";
+        }
+
+        public override bool IsSatisfied(Player player)
+        {
+            //满足的条件
+            return Player.Instance.haQiCount >= requiredCount;
+
+        }
+
+        public override string GetProgressDescription()
+        {
+            return $"哈气次数 {Player.Instance.haQiCount}/{requiredCount}";
+        }
     }
 }
