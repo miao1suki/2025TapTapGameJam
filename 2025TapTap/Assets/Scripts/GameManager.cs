@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private RenderSettingsSO _renderseter;
     [SerializeField] private int fps = 15;
     public Camera current_RT_cam;
+
+    public static GameManager Instance;//单例
     private void OnValidate()
     {
         //Inspector修改参数时触发
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = fps;
+        Instance = this;
     }
     void Start()
     {

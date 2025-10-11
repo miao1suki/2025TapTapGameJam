@@ -67,7 +67,7 @@ namespace miao.day_and_night
         {
             currentTime += Time.deltaTime / dayDurationInSeconds;
             currentTime = Mathf.Repeat(currentTime, 1f);
-            Debug.Log(currentTime);
+            //Debug.Log(currentTime);
         }
 
         private void UpdateDayNightCycle()
