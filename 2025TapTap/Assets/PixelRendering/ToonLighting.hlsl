@@ -18,7 +18,7 @@ struct CustomLight
     float3 layerMask;
 };
 
-float GetPointLightAttenuation(float4 distanceAndSpotAttenuation, float3 positionWS, float3 lightPositionWS)
+float GetPointLightAttenuation_Custom(float4 distanceAndSpotAttenuation, float3 positionWS, float3 lightPositionWS)
 {
     int n = 5;
     float min_att = 0.1;
@@ -102,7 +102,7 @@ Light GetAdditionalPerObjectLightCustom(int perObjectLightIndex, float3 position
     half3 lightDirection = half3(lightVector * rsqrt(distanceSqr));
     // full-float precision required on some platforms
     // float attenuation = DistanceAttenuation(distanceSqr, distanceAndSpotAttenuation.xy) * AngleAttenuation(spotDirection.xyz, lightDirection, distanceAndSpotAttenuation.zw);
-    float attenuation = GetPointLightAttenuation(distanceAndSpotAttenuation, positionWS, lightPositionWS);
+    float attenuation = GetPointLightAttenuation_Custom(distanceAndSpotAttenuation, positionWS, lightPositionWS);
     attenuation *= GetSpotAttenuation(spotDirection.xyz, lightDirection, distanceAndSpotAttenuation.zw) * 0.2;
     // attenuation = GetSpotAttenuation(spotDirection.xyz, lightDirection, distanceAndSpotAttenuation.zw);
     

@@ -6,13 +6,12 @@ namespace miao
 {
     public class Player : MonoBehaviour
     {
-        private Rigidbody rb;
+        [HideInInspector]
+        public Rigidbody rb;
         public static Player Instance;//单例
 
 
         [Header("基础属性")]
-        public float _PlayerVelocity = 0.00f;//玩家当前速度
-        public float _PlayerMaxVelocity = 5.00f;//玩家最大速度
         public int _PlayerHealth = 100;//玩家当前血量
         [SerializeField]
         private int _PlayerMaxHealth = 100;//玩家最大血量
