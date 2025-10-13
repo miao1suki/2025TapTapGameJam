@@ -14,9 +14,8 @@ namespace miao
 
 
         [Header("移动参数")]
-        public float maxSpeed = 30f;//玩家最大速度
+        public float maxSpeed = 40f;//玩家最大速度
         public float sprintMultiplier = 2f;  // 冲刺倍数
-        public float drag = 4f;                // 阻力
 
         [HideInInspector]
         public float moveForce = 100f;// 力的大小
@@ -25,12 +24,14 @@ namespace miao
         private int jumpCount = 0;       // 当前跳跃段数
         private int maxJump = 4;         // 最大跳跃次数
         private bool jumpBuffered = false; // 是否预输入
-        private float jumpBufferTime = 0.2f; // 缓冲时间
+        private float jumpBufferTime = 0.6f; // 缓冲时间
         private float jumpBufferCounter = 0f;
         private Vector3 lastPosition;
         private float jumpResetTimer = 0f;
         private float jumpResetDelay = 0.2f; // 停止跳跃多久重置跳跃次数
         private float verticalThreshold = 0.05f; // 判断是否有垂直移动
+
+        private PhysicsBody body;
 
         private Rigidbody rb;
         private void Awake()
@@ -40,6 +41,11 @@ namespace miao
             {
                 Transform t = transform.Find("CenterOfMass");
                 if (t != null) centerOfMass = t;
+            }
+            body = GetComponent<PhysicsBody>();
+            if(!body)
+            {
+                Debug.LogWarning("Player没有找到PhysicsBody");
             }
 
             // 设置刚体的重心
@@ -51,8 +57,7 @@ namespace miao
             {
                 Debug.LogWarning("[PlayerMoving] 未找到 CenterOfMass 节点！");
             }
-            rb.drag = drag;
-            rb.angularDrag = 2f;
+
         }
 
         void Start()
@@ -96,6 +101,7 @@ namespace miao
 
         private void FixedUpdate()
         {
+            Debug.LogWarning(jumpCount);
             if(!rb)
             {
                 Debug.LogError("未找到rb");
@@ -105,29 +111,62 @@ namespace miao
 
             Vector3 moveDir = Vector3.zero;
 
-            if (W_Flag) moveDir += transform.forward;
+            if (W_Flag) moveDir += transform.forward; 
             if (S_Flag) moveDir -= transform.forward;
-            if (A_Flag) moveDir -= transform.right;
+            if (A_Flag) moveDir -= transform.right; 
             if (D_Flag) moveDir += transform.right;
 
-            moveDir.Normalize();
 
-            float currentMultiplier = Left_Shift_Flag ? sprintMultiplier : 1f;
-            Vector3 force = moveDir * moveForce * currentMultiplier * rb.mass;
-
-            // 限制最大速度
-            if (rb.velocity.magnitude < maxSpeed)
+            // 在操控速度前检查 moveDir 是否为零
+            if (moveDir.magnitude > 0f)
             {
-                rb.AddForce(force, ForceMode.Force);
+                moveDir.Normalize();
+
+                float currentMultiplier = Left_Shift_Flag ? sprintMultiplier : 1f;
+                Vector3 force = moveDir * moveForce * currentMultiplier * rb.mass;
+
+                // 计算当前速度的水平分量（X, Z）
+                Vector3 velocityFlat = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                float currentSpeed = velocityFlat.magnitude;  // 当前速度的大小
+
+                // 设定阈值，控制在接近最大速度时就停止施加力
+                float speedThreshold = maxSpeed * 0.95f;  // 95% 的 maxSpeed
+
+                if (currentSpeed < speedThreshold)
+                {
+                    // 如果当前速度低于阈值，继续施加力
+                    body.ApplyForce(force);
+                }
+                else
+                {
+                    // 预测下次施加的力是否会超速
+                    Vector3 predictedVelocity = velocityFlat + force.normalized * Time.fixedDeltaTime; // 预估下一帧的速度
+                    float predictedSpeed = predictedVelocity.magnitude;
+
+                    // 如果预测速度超过最大速度，调整力使其恰好达到最大速度
+                    if (predictedSpeed > maxSpeed)
+                    {
+                        Vector3 velocityAdjustment = predictedVelocity.normalized * maxSpeed - velocityFlat;
+                        body.ApplyForce(velocityAdjustment / Time.fixedDeltaTime);  // 用调整后的力来确保速度不超限
+                    }
+                    else
+                    {
+                        body.ApplyForce(force);  // 如果不会超速，继续施加正常的力
+                    }
+                }
             }
 
             // 保证水平运动（防止翻滚时乱飞）
             Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.velocity = flatVel + Vector3.up * rb.velocity.y;
 
+
+
             //跳跃预输入执行
             HandleJump();
         }
+
+       
 
         private void HandleJumpReset()
         {
@@ -187,17 +226,16 @@ namespace miao
                 switch (jumpCount)
                 {
                     case 1:
-                        rb.velocity = new Vector3(rb.velocity.x, 15f , rb.velocity.z); // 一段跳
+                        body.ApplyForce(new Vector3(0, 150f * 5 * body.mass, 0));// 一段跳
                         break;
                     case 2:
-                        rb.velocity = new Vector3(rb.velocity.x, 10f, rb.velocity.z); // 二段跳
+                        body.ApplyForce(new Vector3(0, 100f * 5 * body.mass, 0));// 二段跳
                         break;
                     case 3:
-                        rb.velocity = new Vector3(rb.velocity.x, 50f, rb.velocity.z); // 弹飞
+                        body.ApplyForce(new Vector3(0, 500f * 5 * body.mass, 0));// 弹飞
                         break;
                     case 4:
-                        Vector3 randomDir = new Vector3(Random.Range(-100f, 100f), 120f, Random.Range(-100f, 100f));
-                        rb.velocity = randomDir; // 随机乱飞
+                        body.ApplyForce(new Vector3(Random.Range(-1000f, 1000f) * 2 * body.mass, 1200f * 2 * body.mass, Random.Range(-1000f, 1000f) * 2 * body.mass)); // 随机乱飞
                         break;
                 }
             }

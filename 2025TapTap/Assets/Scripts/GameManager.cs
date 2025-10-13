@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using miao;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [ExecuteAlways] // 编辑器和运行时都执行
 
+    [SerializeField]
+    private List<GameObject> dontDestroyObjects = new List<GameObject>();
     [SerializeField] private RenderSettingsSO _renderseter;
     //外部访问 RenderSettingsSO 的属性
     public RenderSettingsSO Renderseter
@@ -34,6 +38,13 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = fps;
         Instance = this;
+        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            AddDontDestroyObject();
+        }
     }
     void Start()
     {
@@ -47,6 +58,16 @@ public class GameManager : MonoBehaviour
         if(InputController.Instance.get_Key("Esc"))
         {
             GameExit();
+        }
+    }
+    public void AddDontDestroyObject()
+    {
+        foreach (GameObject obj in dontDestroyObjects)
+        {
+            if (obj != null)
+            {
+                DontDestroyOnLoad(obj);
+            }
         }
     }
     public void setCamSize()
@@ -95,9 +116,32 @@ public class GameManager : MonoBehaviour
         current_RT_cam.nearClipPlane = near;
         current_RT_cam.farClipPlane = far;
     }
+    
+    public void GameStart()
+    {
+        if(current_RT_cam.gameObject.transform.parent.GetComponent<CamSize>() != null)
+        {
+            current_RT_cam.gameObject.transform.parent.GetComponent<CamSize>().useOffscreenIndicator = true;
+        }
 
+        // 异步加载场景
+        StartCoroutine(LoadSceneAsync("miao_testScene1"));
+
+        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
+
+    }
     private void GameExit()
     {
         Application.Quit();
+    }
+
+    private IEnumerator LoadSceneAsync(string sceneName)
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!asyncOperation.isDone)
+        {
+            yield return null; // 等待直到场景加载完成
+        }
     }
 }

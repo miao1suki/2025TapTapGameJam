@@ -11,9 +11,9 @@ namespace miao
         public float mass = 1f;
         public float bounciness = 0.5f;
         [Tooltip("速度衰减系数，0-1")]
-        public float linearDamping = 0.1f;
+        public float linearDamping = 0.8f;
         [Tooltip("旋转衰减系数，0-1")]
-        public float angularDamping = 0.1f;
+        public float angularDamping = 0.8f;
         [HideInInspector] public Vector3 angularVelocity;
 
         [Tooltip("球形碰撞半径，用于物理系统")]
@@ -78,6 +78,11 @@ namespace miao
 
         public void PhysicsUpdate(float deltaTime)
         {
+
+            accumulatedForce -= (1-linearDamping)* accumulatedForce;
+
+            accumulatedTorque -= (1-angularDamping)* accumulatedTorque;
+
             // -------------------------
             // 使用累加力更新 Rigidbody
             // -------------------------
@@ -95,8 +100,6 @@ namespace miao
                 // 角运动
                 // -------------------------
                 Vector3 angularAcceleration = accumulatedTorque / mass; // 简化惯性
-                angularVelocity += angularAcceleration * deltaTime;
-                rb.angularVelocity += angularVelocity * deltaTime;
 
 
 

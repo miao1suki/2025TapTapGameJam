@@ -17,6 +17,7 @@ namespace miao
         public Transform player;  // 玩家Transform
 
         [Header("UI指引")]
+        public bool useOffscreenIndicator = false;
         public RectTransform offscreenIndicator; // UI箭头（Canvas内）
 
         [Header("参数设置")]
@@ -30,13 +31,17 @@ namespace miao
         // 按键检测 Flag
         private bool wheelUp_Flag;
         private bool wheelDown_Flag;
+        private void Awake()
+        {
+            player = Player.Instance.transform;
+        }
 
         private void Start()
         {
             wheelUp_Flag = false;
             wheelDown_Flag = false;
 
-            if (offscreenIndicator != null)
+            if (offscreenIndicator != null || useOffscreenIndicator)
                 offscreenIndicator.gameObject.SetActive(false);
 
             main_Cam = this.gameObject.GetComponent<Camera>();
@@ -107,7 +112,7 @@ namespace miao
                 }
 
                 //  显示UI箭头
-                if (offscreenIndicator != null)
+                if (offscreenIndicator != null || useOffscreenIndicator)
                 {
                     offscreenIndicator.gameObject.SetActive(true);
                     UpdateOffscreenIndicator(viewPos);
@@ -116,7 +121,7 @@ namespace miao
             else
             {
                 // 玩家在画面内则隐藏UI箭头
-                if (offscreenIndicator != null)
+                if (offscreenIndicator != null || useOffscreenIndicator)
                     offscreenIndicator.gameObject.SetActive(false);
             }
         }
