@@ -11,7 +11,6 @@ Shader "Lit/UnlitToonShader"
         { 
             "RenderType"="Opaque"
             "LightMode" = "UniversalForward"
-            "RenderPipeline" = "UniversalRenderPipeline"
         }
         LOD 100
 
@@ -30,7 +29,7 @@ Shader "Lit/UnlitToonShader"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.hlsl"
-            #include "./ToonLighting.hlsl"
+            #include "Assets/Shaders/Includes/ToonLighting.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
             float4 _ShadowColor;

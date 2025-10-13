@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 namespace miao
 {
@@ -12,6 +13,7 @@ namespace miao
         private bool S_Flag;
         private bool D_Flag;
         private bool Left_Shift_Flag;
+        private bool Esc_Flag;
 
         private void Awake()
         {
@@ -25,6 +27,8 @@ namespace miao
             S_Flag = false;
             D_Flag = false;
             Left_Shift_Flag = false;
+            Esc_Flag = false;
+
         }
         void Update()
         {
@@ -35,6 +39,24 @@ namespace miao
             //////////////////
 
 
+        }
+
+        public bool get_Key(string key)
+        {
+            // 动态拼接字符串
+            string flagName = key + "_Flag"; 
+
+            // 使用反射获取对应的成员变量
+            FieldInfo field = this.GetType().GetField(flagName, BindingFlags.NonPublic | BindingFlags.Instance);
+
+            if (field != null)
+            {
+                return (bool)field.GetValue(this);  // 获取对应字段的值
+            }
+            else
+            {
+                return false; 
+            }
         }
 
         public void OnEnable()
@@ -53,6 +75,8 @@ namespace miao
             if (Input.GetKeyDown(KeyCode.S)) S_Flag = true;
             if (Input.GetKeyDown(KeyCode.D)) D_Flag = true;
             if (Input.GetKeyDown(KeyCode.LeftShift)) Left_Shift_Flag = true;
+            if (Input.GetKeyDown(KeyCode.Escape)) Esc_Flag = true;
+
 
         }
 
@@ -63,6 +87,7 @@ namespace miao
             if (Input.GetKey(KeyCode.S)) S_Flag = true;
             if (Input.GetKey(KeyCode.D)) D_Flag = true;
             if (Input.GetKey(KeyCode.LeftShift)) Left_Shift_Flag = true;
+            if (Input.GetKeyDown(KeyCode.D)) D_Flag = true;
         }
 
         private void key_Reset()
@@ -72,7 +97,7 @@ namespace miao
             S_Flag = false;
             D_Flag = false;
             Left_Shift_Flag = false;
-
+            Esc_Flag = false;
         }
     }
 }

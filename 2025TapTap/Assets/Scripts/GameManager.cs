@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //setCamSize();
+        if(InputController.Instance.get_Key("Esc"))
+        {
+            GameExit();
+        }
     }
     public void setCamSize()
     {
@@ -92,5 +96,8 @@ public class GameManager : MonoBehaviour
         current_RT_cam.farClipPlane = far;
     }
 
-
+    private void GameExit()
+    {
+        Application.Quit();
+    }
 }
