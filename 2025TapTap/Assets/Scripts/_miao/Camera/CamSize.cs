@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 namespace miao
 {
@@ -31,13 +32,11 @@ namespace miao
         // 按键检测 Flag
         private bool wheelUp_Flag;
         private bool wheelDown_Flag;
-        private void Awake()
-        {
-            player = Player.Instance.transform;
-        }
+
 
         private void Start()
         {
+            player = Player.Instance.transform;
             wheelUp_Flag = false;
             wheelDown_Flag = false;
 
@@ -75,10 +74,13 @@ namespace miao
             GameManager.Instance.Renderseter.RT_Size = Mathf.Clamp(GameManager.Instance.Renderseter.RT_Size, 0.1f, 24f);
 
             // ------------------ 自动调整逻辑 ------------------
-            AutoAdjustSize();
 
-            // 应用设置
-            GameManager.Instance.setCamSize();
+                AutoAdjustSize();
+
+                // 应用设置
+                GameManager.Instance.setCamSize();
+
+
         }
 
         private void AutoAdjustSize()
@@ -129,10 +131,14 @@ namespace miao
 
         private void UpdateOffscreenIndicator(Vector3 viewPos)
         {
-            if (offscreenIndicator == null) return;
+            if (offscreenIndicator == null)
+            {
+                Debug.LogError("未找到offscreenIndicator");
+                return;
+            }
 
-            // 视口坐标转成屏幕坐标
-            Vector2 screenPos = new Vector2(
+                // 视口坐标转成屏幕坐标
+                Vector2 screenPos = new Vector2(
                 (viewPos.x - 0.5f) * Screen.width,
                 (viewPos.y - 0.5f) * Screen.height
             );

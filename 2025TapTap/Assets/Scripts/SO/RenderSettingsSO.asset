@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5453fafc665e2b4fa8247e90b9df860, type: 3}
   m_Name: RenderSettingsSO
   m_EditorClassIdentifier: 
-  RT_Size: 2.58
+  RT_Size: 3
   RT_Pixel: 3
   BaseWidth: 160
   BaseHeight: 90

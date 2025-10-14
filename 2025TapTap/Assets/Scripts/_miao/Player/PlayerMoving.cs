@@ -5,11 +5,6 @@ namespace miao
 {
     public class PlayerMoving : MonoBehaviour
     {
-        private bool W_Flag;
-        private bool A_Flag;
-        private bool S_Flag;
-        private bool D_Flag;
-        private bool Left_Shift_Flag;
         private Transform centerOfMass;
 
 
@@ -62,22 +57,12 @@ namespace miao
 
         void Start()
         {
-            W_Flag = false;
-            A_Flag = false;
-            S_Flag = false;
-            D_Flag = false;
-            Left_Shift_Flag = false;
+
         }
 
 
         void Update()
         {
-            //每帧检测按键部分
-            key_Reset();
-            key_Down();
-            key_Keep();
-            //////////////////
-            
             CheckJumpInput();//跳跃检测
             HandleJumpReset();
             //Debug.Log("///////" + jumpCount);
@@ -110,19 +95,18 @@ namespace miao
             ////////////////////////////////////
 
             Vector3 moveDir = Vector3.zero;
-
-            if (W_Flag) moveDir += transform.forward; 
-            if (S_Flag) moveDir -= transform.forward;
-            if (A_Flag) moveDir -= transform.right; 
-            if (D_Flag) moveDir += transform.right;
-
+  
+            if (InputController.Instance.get_Key("W")) moveDir += transform.forward; 
+            if (InputController.Instance.get_Key("S")) moveDir -= transform.forward;
+            if (InputController.Instance.get_Key("A")) moveDir -= transform.right; 
+            if (InputController.Instance.get_Key("D")) moveDir += transform.right;
 
             // 在操控速度前检查 moveDir 是否为零
             if (moveDir.magnitude > 0f)
             {
                 moveDir.Normalize();
 
-                float currentMultiplier = Left_Shift_Flag ? sprintMultiplier : 1f;
+                float currentMultiplier = InputController.Instance.get_Key("Left_Shift") ? sprintMultiplier : 1f;
                 Vector3 force = moveDir * moveForce * currentMultiplier * rb.mass;
 
                 // 计算当前速度的水平分量（X, Z）
@@ -201,7 +185,7 @@ namespace miao
 
         private void CheckJumpInput()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (InputController.Instance.get_Key("Space"))
             {
                 jumpBuffered = true;
                 jumpBufferCounter = jumpBufferTime;
@@ -239,38 +223,6 @@ namespace miao
                         break;
                 }
             }
-        }
-
-
-
-        private void key_Down()
-        {
-            if (Input.GetKeyDown(KeyCode.W)) W_Flag = true;
-            if (Input.GetKeyDown(KeyCode.A)) A_Flag = true;
-            if (Input.GetKeyDown(KeyCode.S)) S_Flag = true;
-            if (Input.GetKeyDown(KeyCode.D)) D_Flag = true;
-            if (Input.GetKeyDown(KeyCode.LeftShift)) Left_Shift_Flag = true;
-
-        }
-
-        private void key_Keep()
-        {
-            if (Input.GetKey(KeyCode.W)) W_Flag = true;
-            if (Input.GetKey(KeyCode.A)) A_Flag = true;
-            if (Input.GetKey(KeyCode.S)) S_Flag = true;
-            if (Input.GetKey(KeyCode.D)) D_Flag = true;
-            if (Input.GetKey(KeyCode.LeftShift)) Left_Shift_Flag = true;
-        }
-
-        private void key_Reset()
-        {
-                W_Flag = false;
-                A_Flag = false;
-                S_Flag = false;
-                D_Flag = false;
-                Left_Shift_Flag = false;
-
-        }
-        
+        }        
     }
 }

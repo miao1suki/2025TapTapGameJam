@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using miao;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -18,6 +17,8 @@ public class GameManager : MonoBehaviour
         get => _renderseter;
         set => _renderseter = value;
     }
+
+    private float lastRTSize = -1f; // 上一帧的 RT_Size
 
     [SerializeField] private int fps = 15;
     public Camera current_RT_cam;
@@ -36,19 +37,27 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
+        //场景切换时不重复执行
         Application.targetFrameRate = fps;
         Instance = this;
-        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            AddDontDestroyObject();
-        }
+
+        _renderseter.RT_Size = 3.0f;
+        setCamSize();
+        Camera.main.GetComponent<CamSize>().enabled = false;
+
     }
     void Start()
     {
-        setCamSize();
+        //场景切换时重复执行
+        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
+        Camera.main.gameObject.GetComponent<CamSize>().useOffscreenIndicator = false;
+        Player.Instance.GetComponent<PhysicsBody>().useGravity = false;
+        SetConstraints(true, false);
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        AddDontDestroyObject();
+        //setCamSize();
     }
 
     // Update is called once per frame
@@ -58,6 +67,11 @@ public class GameManager : MonoBehaviour
         if(InputController.Instance.get_Key("Esc"))
         {
             GameExit();
+        }
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            GameStart();
         }
     }
     public void AddDontDestroyObject()
@@ -78,10 +92,21 @@ public class GameManager : MonoBehaviour
             Debug.LogError("没有设置当前RT_cam");
             return; 
         }
+
+        // 检查 RT_Size 是否变化
+        if (Mathf.Approximately(lastRTSize, _renderseter.RT_Size))
+        {
+            return; 
+        }
+
+
         this.current_RT_cam.GetComponent<Camera>().orthographicSize = _renderseter.RT_Size;
         auto_Pixelset();
         _renderseter.ApplySettings();
         UpdateClipPlanes();
+
+        // 更新上一帧 RT_Size
+        lastRTSize = _renderseter.RT_Size;
     }
 
     private void auto_Pixelset()
@@ -116,18 +141,35 @@ public class GameManager : MonoBehaviour
         current_RT_cam.nearClipPlane = near;
         current_RT_cam.farClipPlane = far;
     }
-    
+
+    //  设置Player的rb锁定（位置，旋转）
+    public void SetConstraints(bool freezePosition, bool freezeRotation)
+    {
+        Player.Instance.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+        if (freezePosition)
+            Player.Instance.GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePosition;
+
+        if (freezeRotation)
+            Player.Instance.GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezeRotation;
+    }
+
     public void GameStart()
     {
+        //此处设定应在场景切换前生效
         if(current_RT_cam.gameObject.transform.parent.GetComponent<CamSize>() != null)
         {
             current_RT_cam.gameObject.transform.parent.GetComponent<CamSize>().useOffscreenIndicator = true;
         }
 
+        Player.Instance.GetComponent<PhysicsBody>().useGravity = true;
+        SetConstraints(false,true);
+
+
         // 异步加载场景
         StartCoroutine(LoadSceneAsync("miao_testScene1"));
 
-        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
+
 
     }
     private void GameExit()
@@ -135,13 +177,25 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+
     private IEnumerator LoadSceneAsync(string sceneName)
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+
 
         while (!asyncOperation.isDone)
         {
             yield return null; // 等待直到场景加载完成
         }
+
+        //此处设定应在场景加载完成后生效
+        PhysicsSystem.Instance.gravityDirection = new Vector3(0, -1, 0);
+        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
+        Camera.main.GetComponent<CamSize>().enabled = true;
+        Camera.main.gameObject.GetComponent<CamSize>().useOffscreenIndicator = true;
+        Player.Instance.transform.position = new Vector3(0,5,0);
+        Player.Instance.transform.rotation = Quaternion.Euler(0, -60, 0);
+        _renderseter.RT_Size = 7.0f;
+        setCamSize();
     }
 }

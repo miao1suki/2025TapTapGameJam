@@ -17,7 +17,7 @@ namespace miao
         [Header("固定Y高度")]
         public float fixedY = 6.9f; // 摄像机固定的竖直高度
 
-        private void Awake()
+        private void Start()
         {
             target = Player.Instance.transform;
         }

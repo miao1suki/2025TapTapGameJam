@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace miao
 {
@@ -35,6 +36,9 @@ namespace miao
 
         private void Awake()
         {
+            // 监听场景加载事件
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            
             // 获取刚体
             rb = GetComponent<Rigidbody>();
             if (rb != null)
@@ -50,17 +54,22 @@ namespace miao
             }
         }
 
-        private void OnEnable()
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            // 检查自己是否已经被销毁
+            if (this == null) return;
+
+            // 等待 PhysicsSystem 初始化后注册
             StartCoroutine(WaitAndRegister());
         }
-
         private IEnumerator WaitAndRegister()
         {
             // 等待 PhysicsSystem 初始化
             yield return new WaitUntil(() => PhysicsSystem.Instance != null);
+            // 注册当前物体
             PhysicsSystem.Instance.RegisterBody(this);
         }
+
 
         private void OnDisable()
         {
@@ -112,6 +121,12 @@ namespace miao
                 // 同步 velocity 便于 PhysicsSystem 使用
                 velocity = rb.velocity;
             }
+        }
+
+        public void ClearForces()
+        {
+            accumulatedForce = Vector3.zero;
+            accumulatedTorque = Vector3.zero;
         }
 
         private void OnDrawGizmosSelected()

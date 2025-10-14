@@ -8,12 +8,15 @@ namespace miao
     {
         public static InputController Instance;//µ¥Àý
 
+#pragma warning disable CS0414
         private bool W_Flag;
         private bool A_Flag;
         private bool S_Flag;
         private bool D_Flag;
         private bool Left_Shift_Flag;
         private bool Esc_Flag;
+        private bool Space_Flag;
+#pragma warning disable CS0414
 
         private void Awake()
         {
@@ -28,7 +31,7 @@ namespace miao
             D_Flag = false;
             Left_Shift_Flag = false;
             Esc_Flag = false;
-
+            Space_Flag = false;
         }
         void Update()
         {
@@ -55,6 +58,7 @@ namespace miao
             }
             else
             {
+                Debug.LogError("Î´ÕÒµ½" + "¡°" + key + "¡±");
                 return false; 
             }
         }
@@ -76,6 +80,7 @@ namespace miao
             if (Input.GetKeyDown(KeyCode.D)) D_Flag = true;
             if (Input.GetKeyDown(KeyCode.LeftShift)) Left_Shift_Flag = true;
             if (Input.GetKeyDown(KeyCode.Escape)) Esc_Flag = true;
+            if (Input.GetKeyDown(KeyCode.Space)) Space_Flag = true;
 
 
         }
@@ -87,7 +92,8 @@ namespace miao
             if (Input.GetKey(KeyCode.S)) S_Flag = true;
             if (Input.GetKey(KeyCode.D)) D_Flag = true;
             if (Input.GetKey(KeyCode.LeftShift)) Left_Shift_Flag = true;
-            if (Input.GetKeyDown(KeyCode.D)) D_Flag = true;
+            if (Input.GetKey(KeyCode.Escape)) Esc_Flag = true;
+            if (Input.GetKey(KeyCode.Space)) Space_Flag = true;
         }
 
         private void key_Reset()
@@ -98,6 +104,7 @@ namespace miao
             D_Flag = false;
             Left_Shift_Flag = false;
             Esc_Flag = false;
+            Space_Flag = false;
         }
     }
 }

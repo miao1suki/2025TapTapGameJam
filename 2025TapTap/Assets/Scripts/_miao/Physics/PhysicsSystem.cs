@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 namespace miao
 {
@@ -20,18 +21,47 @@ namespace miao
         private void Awake()
         {
             Instance = this;
+            // 监听场景加载事件
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
+        }
+        private void Start()
+        {
+
+
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            // 场景切换时清空静态物体
+            staticColliders.Clear();
+            GatherStaticColliders(); // 重新收集静态碰撞体
+        }
+        private void GatherStaticColliders()
+        {
             // 自动收集场景中所有静态碰撞体（没有 PhysicsBody 的 Collider）
             foreach (var col in FindObjectsOfType<Collider>())
             {
-                if (col.enabled && col.GetComponent<PhysicsBody>() == null)
+                if (col.enabled && !col.isTrigger && col.GetComponent<PhysicsBody>() == null)
                     staticColliders.Add(col);
             }
+        }
+
+        private void ClearPhysicsBodies()
+        {
+            // 清空静态和动态物体列表
+            bodies.Clear();
+            staticColliders.Clear();
         }
 
         public void RegisterBody(PhysicsBody body)
         {
             if (!bodies.Contains(body))
+            {
+                body.ClearForces(); // 清空 accumulatedForce/accumulatedTorque
                 bodies.Add(body);
+            }
+
         }
 
         public void UnregisterBody(PhysicsBody body)
@@ -121,6 +151,9 @@ namespace miao
             foreach (var body in bodies)
             {
                 body.isGrounded = false; // 每帧先假设物体不在地面
+
+                // 清理掉已销毁的静态碰撞体
+                staticColliders.RemoveAll(col => col == null);
 
                 foreach (var col in staticColliders)
                 {
