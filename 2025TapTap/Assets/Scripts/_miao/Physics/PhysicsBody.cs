@@ -8,6 +8,7 @@ namespace miao
     [RequireComponent(typeof(Rigidbody))] // 自动确保有刚体
     public class PhysicsBody : MonoBehaviour
     {
+        public bool isActive { get; private set; } = false;
         [Header("物理参数")]
         public float mass = 1f;
         public float bounciness = 0.5f;
@@ -33,6 +34,9 @@ namespace miao
         private Vector3 accumulatedTorque; // 用于计算旋转力矩
 
         [HideInInspector] public Rigidbody rb;
+
+        [HideInInspector] public Vector3 predictedPosition;
+        [HideInInspector] public Quaternion predictedRotation;
 
         private void Awake()
         {
@@ -70,6 +74,13 @@ namespace miao
             PhysicsSystem.Instance.RegisterBody(this);
         }
 
+        public void EnableSimulation(bool enable)
+        {
+            isActive = enable;
+            rb.isKinematic = !enable;
+            rb.detectCollisions = enable;
+            enabled = enable;
+        }
 
         private void OnDisable()
         {

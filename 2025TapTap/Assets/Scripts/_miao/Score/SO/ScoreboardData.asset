@@ -16,6 +16,7 @@ MonoBehaviour:
   - "\u54C8\u57FA\u7C73\uFF08\u4E0D\u5403\u732B\u8584\u8377\uFF09"
   - "\u53EE\u549A\u9E21"
   - "\u5927\u72D7\u53EB"
+  - "\u54C8\u57FA\u4ED9"
   randomCountRange: {x: 5, y: 10}
   scoreRange: {x: 500, y: 20000}
   currentRank:

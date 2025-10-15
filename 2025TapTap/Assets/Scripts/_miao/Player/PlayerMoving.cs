@@ -86,7 +86,7 @@ namespace miao
 
         private void FixedUpdate()
         {
-            Debug.LogWarning(jumpCount);
+            //Debug.LogWarning(jumpCount);
             if(!rb)
             {
                 Debug.LogError("Œ¥’“µΩrb");

@@ -156,8 +156,9 @@ MonoBehaviour:
   - {fileID: 1379630578}
   - {fileID: 446968105}
   - {fileID: 324028066}
+  - {fileID: 475009864}
   _renderseter: {fileID: 11400000, guid: 70fdde356dccf384ab0ced3322c39e8d, type: 2}
-  fps: 120
+  fps: -1
   current_RT_cam: {fileID: 204039821}
   autoPixelControl: 1
 --- !u!4 &24626808
@@ -459,11 +460,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -5.125523
-  far clip plane: 19.732218
+  near clip plane: -7.8823957
+  far clip plane: 22.894512
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4.9379196
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -556,37 +557,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &444622755
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 444622756}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &444622756
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444622755}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1245570546}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &446968105
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +601,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &455729502
+--- !u!1 &475009864
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,56 +609,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 455729504}
-  - component: {fileID: 455729503}
+  - component: {fileID: 475009865}
+  - component: {fileID: 475009866}
+  - component: {fileID: 475009867}
   m_Layer: 0
-  m_Name: RockAndPlayerFreeze (2)
+  m_Name: PhysicsActivator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &455729503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455729502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8d2f02b8bdc834aa0340b447c51318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockPrefabs:
-  - {fileID: 2846422229228476258, guid: 78b5da2b8d9e1fa488ef166c329c0e22, type: 3}
-  - {fileID: 1023495864192091052, guid: 968595dc71ad5094590e74e2c0299d24, type: 3}
-  - {fileID: 1744351525002226345, guid: a636921bb212b834d98bd8cb7f87475b, type: 3}
-  - {fileID: 1505994328677935560, guid: dc255ccd55b6d7e4eb864f3985ce8075, type: 3}
-  - {fileID: 4857430188253877736, guid: 387bf47f8d5505243871cbb01303e33b, type: 3}
-  - {fileID: 2804374216702416573, guid: cf010ca504f0e0e408bded66247a06c7, type: 3}
-  spawnPoint: {fileID: 1074096792}
-  spawnRange: {x: 30, y: -1.8, z: 30}
-  scaleRange: {x: 0.1, y: 1.5}
-  quantityRange: {x: 1, y: 10}
-  spawnIntervalRange: {x: 2, y: 5}
-  lifeTime: 3
---- !u!4 &455729504
+--- !u!4 &475009865
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455729502}
+  m_GameObject: {fileID: 475009864}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.26, y: -12.05, z: 0.8}
+  m_LocalRotation: {x: -0, y: -0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1074096793}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &475009866
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475009864}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 100
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &475009867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475009864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0e6b7885dbe79499e443c6a49d1be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &765372240
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +948,7 @@ Camera:
   far clip plane: 50
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4.9379196
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
@@ -986,37 +964,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1074096792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1074096793}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1074096793
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074096792}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 455729504}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122455748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,64 +1011,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 854006496}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1245570544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1245570546}
-  - component: {fileID: 1245570545}
-  m_Layer: 0
-  m_Name: RockAndPlayerFreeze (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1245570545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245570544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8d2f02b8bdc834aa0340b447c51318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockPrefabs:
-  - {fileID: 2846422229228476258, guid: 78b5da2b8d9e1fa488ef166c329c0e22, type: 3}
-  - {fileID: 1023495864192091052, guid: 968595dc71ad5094590e74e2c0299d24, type: 3}
-  - {fileID: 1744351525002226345, guid: a636921bb212b834d98bd8cb7f87475b, type: 3}
-  - {fileID: 1505994328677935560, guid: dc255ccd55b6d7e4eb864f3985ce8075, type: 3}
-  - {fileID: 4857430188253877736, guid: 387bf47f8d5505243871cbb01303e33b, type: 3}
-  - {fileID: 2804374216702416573, guid: cf010ca504f0e0e408bded66247a06c7, type: 3}
-  spawnPoint: {fileID: 444622755}
-  spawnRange: {x: 10, y: -1.8, z: 10}
-  scaleRange: {x: 0.1, y: 1.5}
-  quantityRange: {x: 1, y: 12}
-  spawnIntervalRange: {x: 1, y: 3}
-  lifeTime: 3
---- !u!4 &1245570546
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245570544}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.26, y: -8.94, z: 0.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 444622756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300749274
@@ -1832,7 +1721,6 @@ SceneRoots:
   - {fileID: 24626808}
   - {fileID: 765372244}
   - {fileID: 85860665}
-  - {fileID: 1245570546}
-  - {fileID: 455729504}
   - {fileID: 1666268702}
   - {fileID: 324028068}
+  - {fileID: 475009865}

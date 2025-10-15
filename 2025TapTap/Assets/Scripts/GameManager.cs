@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [ExecuteAlways] // 编辑器和运行时都执行
 
+    private float deltaTime = 0.0f;
     [SerializeField]
     private List<GameObject> dontDestroyObjects = new List<GameObject>();
     [SerializeField] private RenderSettingsSO _renderseter;
@@ -63,8 +64,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+        if (Time.frameCount % 30 == 0) // 每30帧输出一次
+        {
+            int fps = Mathf.RoundToInt(1.0f / deltaTime);
+            Debug.Log("FPS: " + fps);
+        }
         //setCamSize();
-        if(InputController.Instance.get_Key("Esc"))
+        if (InputController.Instance.get_Key("Esc"))
         {
             GameExit();
         }
