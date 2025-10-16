@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+using System.Threading;
+using UnityEditor;
+using System;
 
 namespace miao
 {
@@ -19,6 +22,9 @@ namespace miao
         [SerializeField]
         private List<Collider> staticColliders = new List<Collider>(); // 静态地面等碰撞体
 
+        private List<Task> activeTasks = new List<Task>(); // 当前运行的任务列表
+        private CancellationTokenSource cancellationTokenSource; // 用于任务取消
+
         // ------------------------------
         // 1. Awake 初始化实例和场景事件
         // ------------------------------
@@ -26,6 +32,7 @@ namespace miao
         {
             Instance = this;
             SceneManager.sceneLoaded += OnSceneLoaded;
+            cancellationTokenSource = new CancellationTokenSource(); // 初始化取消标记
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -81,23 +88,30 @@ namespace miao
             // 2.2 力学计算多线程处理（批量更新速度/力/旋转力矩）
             // ------------------------------
             int batchSize = 8; // 每批处理的物体数量
-            List<Task> tasks = new List<Task>();
+
+            // 清理已经完成的任务
+            activeTasks.RemoveAll(task => task.IsCompleted);
 
             for (int i = 0; i < bodies.Count; i += batchSize)
             {
                 int start = i;
                 int end = Mathf.Min(i + batchSize, bodies.Count);
 
-                // 多线程只计算数学部分（速度/力/旋转力矩），不访问 Transform/Collider
-                tasks.Add(Task.Run(() => ComputeBatch(start, end, deltaTime)));
+                // 使用线程池来管理任务，而不是每次都创建独立的 Task
+                var task = Task.Run(() => ComputeBatch(start, end, deltaTime, cancellationTokenSource.Token));
+                activeTasks.Add(task);
             }
 
-            Task.WaitAll(tasks.ToArray());
+            // 等待任务完成
+            Task.WhenAll(activeTasks).ContinueWith(_ =>
+            {
+                // 清理任务池
+                activeTasks.Clear();
+            });
 
             // ------------------------------
             // 2.3 主线程处理 Transform 更新和碰撞
             // ------------------------------
-
             // 更新位置和旋转（Transform 只能主线程操作）
             foreach (var body in bodies)
             {
@@ -111,21 +125,18 @@ namespace miao
             // ------------------------------
             // 关键优化：静态地面碰撞
             // ------------------------------
-            // 说明：
-            // 1. 静态地面碰撞检测开销最大，因为每个物体都要对每个静态 Collider 检测 ClosestPoint
-            // 2. 优化策略：
-            //    - 每帧只清理一次 null Collider
-            //    - 支持批量或区域化检测（可后续进一步分块空间）
             ResolveStaticCollisions();
         }
 
         // ------------------------------
         // 3. 多线程批处理计算力学（数学部分）
         // ------------------------------
-        private void ComputeBatch(int start, int end, float deltaTime)
+        private void ComputeBatch(int start, int end, float deltaTime, CancellationToken token)
         {
             for (int i = start; i < end; i++)
             {
+                if (token.IsCancellationRequested) break;
+
                 PhysicsBody body = bodies[i];
 
                 if (!body.isActive) continue;
@@ -136,9 +147,6 @@ namespace miao
                     Vector3 gravityForce = gravityDirection.normalized * gravityStrength * body.mass;
                     body.ApplyForce(gravityForce);
                 }
-
-                // 可扩展：累加冲量、旋转力矩等数学计算
-                // 注意：不要访问 Transform 或 Collider
             }
         }
 
@@ -208,7 +216,7 @@ namespace miao
 
                 if (!body.isActive) continue;
 
-                // 可以进一步优化：只检测附近静态物体（Spatial Partition 或 Grid）
+                // 静态物体碰撞检测
                 foreach (var col in staticColliders)
                 {
                     if (!col.enabled) continue;
@@ -255,5 +263,21 @@ namespace miao
                 }
             }
         }
+
+        // ------------------------------
+        // 游戏退出时清理
+        // ------------------------------
+        public void GameExit()
+        {
+            // 取消所有任务
+            cancellationTokenSource.Cancel();
+            Task.WhenAll(activeTasks).ContinueWith(_ =>
+            {
+                activeTasks.Clear();
+                GC.Collect(); // 强制执行垃圾回收
+            });
+        }
+
+
     }
 }

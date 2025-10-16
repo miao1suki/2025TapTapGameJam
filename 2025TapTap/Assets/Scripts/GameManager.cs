@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using miao;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -181,7 +182,13 @@ public class GameManager : MonoBehaviour
     }
     private void GameExit()
     {
-        Application.Quit();
+        PhysicsSystem.Instance.GameExit();
+
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false; // 在编辑器模式下停止播放
+#else
+            Application.Quit(); // 在实际运行时退出
+#endif
     }
 
 
