@@ -5853,7 +5853,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   directionalLight: {fileID: 410087040}
   skyboxMaterial: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
-  dayDurationInSeconds: 600
+  dayDurationInSeconds: 30
   rotationSpeed: 1
   lights:
   - lightName: L1
