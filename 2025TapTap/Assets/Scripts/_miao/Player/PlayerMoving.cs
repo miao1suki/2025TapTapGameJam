@@ -12,7 +12,7 @@ namespace miao
         public float moveForce = 100f; // 力的大小
 
         private int jumpCount = 0;       // 当前跳跃段数
-        private int maxJump = 4;         // 最大跳跃次数
+        private int maxJump = 2;         // 最大跳跃次数
         private bool jumpBuffered = false; // 是否预输入
         private float jumpBufferTime = 0.6f; // 缓冲时间
         private float jumpBufferCounter = 0f;
@@ -72,10 +72,16 @@ namespace miao
 
             // 移动处理
             Vector3 moveDir = Vector3.zero;
-            if (InputController.Instance.get_Key("W")) moveDir += transform.forward;
-            if (InputController.Instance.get_Key("S")) moveDir -= transform.forward;
-            if (InputController.Instance.get_Key("A")) moveDir -= transform.right;
-            if (InputController.Instance.get_Key("D")) moveDir += transform.right;
+            Transform cam = Camera.main.transform;
+
+            // 基于相机水平面方向
+            Vector3 camForward = new Vector3(cam.forward.x, 0f, cam.forward.z).normalized;
+            Vector3 camRight = new Vector3(cam.right.x, 0f, cam.right.z).normalized;
+
+            if (InputController.Instance.get_Key("W")) moveDir += camForward;
+            if (InputController.Instance.get_Key("S")) moveDir -= camForward;
+            if (InputController.Instance.get_Key("A")) moveDir -= camRight;
+            if (InputController.Instance.get_Key("D")) moveDir += camRight;
 
             if (moveDir.magnitude > 0f)
             {

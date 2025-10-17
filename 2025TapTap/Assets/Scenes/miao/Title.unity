@@ -823,15 +823,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa57d1a41e5d094aae39c4f974c4fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 204039821}
-  scrollStep: 0.5
   player: {fileID: 0}
-  useOffscreenIndicator: 0
-  offscreenIndicator: {fileID: 1300749275}
-  autoAdjustSpeed: 50
-  maxRTSize: 24
-  topThreshold: 0.95
-  edgeOffset: 50
+  followOffset: {x: 0, y: 5, z: -8}
+  followSmooth: 5
+  mouseSensitivity: 2.5
+  minPitch: -30
+  maxPitch: 70
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  minDistance: 2
+  maxDistance: 8
+  zoomSmooth: 10
+  isPerspectiveMode: 0
 --- !u!114 &854006498
 MonoBehaviour:
   m_ObjectHideFlags: 0

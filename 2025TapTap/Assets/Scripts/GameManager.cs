@@ -5,6 +5,7 @@ using miao;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 
+
 public class GameManager : MonoBehaviour
 {
     [ExecuteAlways] // 编辑器和运行时都执行
@@ -45,16 +46,14 @@ public class GameManager : MonoBehaviour
 
         _renderseter.RT_Size = 3.0f;
         setCamSize();
-        Camera.main.GetComponent<CamSize>().enabled = false;
 
     }
     void Start()
     {
         //场景切换时重复执行
         current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
-        Camera.main.gameObject.GetComponent<CamSize>().useOffscreenIndicator = false;
         Player.Instance.GetComponent<PhysicsBody>().useGravity = false;
-        SetConstraints(true, false);
+        SetConstraints(true, false);//  设置Player的rb锁定（位置，旋转）
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -95,11 +94,12 @@ public class GameManager : MonoBehaviour
     public void setCamSize()
     {
         //设置画面大小
-        if (current_RT_cam == null) 
-        {
-            Debug.LogError("没有设置当前RT_cam");
-            return; 
-        }
+            if (current_RT_cam == null)
+            {
+                Debug.LogError("没有设置当前RT_cam");
+                return;
+            }
+
 
         // 检查 RT_Size 是否变化
         if (Mathf.Approximately(lastRTSize, _renderseter.RT_Size))
@@ -107,8 +107,18 @@ public class GameManager : MonoBehaviour
             return; 
         }
 
+        // 区分 正交 / 透视
+        if (current_RT_cam.orthographic)
+        {
+            current_RT_cam.orthographicSize = _renderseter.RT_Size;
+        }
+        else
+        {
+            // 透视时用 FOV 映射 RT_Size（近似策略）
+            // RT_Size 0.1 -> FOV 30, RT_Size 24 -> FOV 90
+            current_RT_cam.fieldOfView = Mathf.Lerp(30f, 90f, Mathf.InverseLerp(0.1f, 24f, _renderseter.RT_Size));
+        }
 
-        this.current_RT_cam.GetComponent<Camera>().orthographicSize = _renderseter.RT_Size;
         auto_Pixelset();
         _renderseter.ApplySettings();
         UpdateClipPlanes();
@@ -136,15 +146,28 @@ public class GameManager : MonoBehaviour
     {
         if (current_RT_cam == null) return;
 
-        float minSize = 0.1f;   // 最近 RT_Size
-        float maxSize = 24f;    // 最远 RT_Size
+        float near = 0.01f;
+        float far = 1000.0f;
 
-        // 归一化 RT_Size 到 0~1
-        float t = Mathf.InverseLerp(minSize, maxSize, _renderseter.RT_Size);
+        if (current_RT_cam.orthographic)
+        {
+            float minSize = 0.1f;   // 最近 RT_Size
+            float maxSize = 24f;    // 最远 RT_Size
 
-        // 根据拉近拉远线性插值裁切平面
-        float near = Mathf.Lerp(-1f, -35f, t);
-        float far = Mathf.Lerp(15f, 54f, t);
+            // 归一化 RT_Size 到 0~1
+            float t = Mathf.InverseLerp(minSize, maxSize, _renderseter.RT_Size);
+
+            // 根据拉近拉远线性插值裁切平面
+            near = Mathf.Lerp(-1f, -35f, t);
+            far = Mathf.Lerp(15f, 54f, t);
+        }
+        else
+        {
+            // 透视相机：保持固定范围，避免被动态调整
+            near = 0.01f;
+            far = 1000f;
+        }
+       
 
         current_RT_cam.nearClipPlane = near;
         current_RT_cam.farClipPlane = far;
@@ -165,11 +188,6 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         //此处设定应在场景切换前生效
-        if(current_RT_cam.gameObject.transform.parent.GetComponent<CamSize>() != null)
-        {
-            current_RT_cam.gameObject.transform.parent.GetComponent<CamSize>().useOffscreenIndicator = true;
-        }
-
         Player.Instance.GetComponent<PhysicsBody>().useGravity = true;
         SetConstraints(false,true);
 
@@ -202,14 +220,30 @@ public class GameManager : MonoBehaviour
             yield return null; // 等待直到场景加载完成
         }
 
+        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
+
+        if (current_RT_cam != null)
+        {
+            // 把 RTCam 设为透视并调整参数
+            current_RT_cam.orthographic = false;
+            current_RT_cam.fieldOfView = Mathf.Lerp(30f, 90f, Mathf.InverseLerp(0.1f, 24f, _renderseter.RT_Size));
+        }
+
         //此处设定应在场景加载完成后生效
         PhysicsSystem.Instance.gravityDirection = new Vector3(0, -1, 0);
-        current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
-        Camera.main.GetComponent<CamSize>().enabled = true;
-        Camera.main.gameObject.GetComponent<CamSize>().useOffscreenIndicator = true;
-        Player.Instance.transform.position = new Vector3(0,5,0);
-        Player.Instance.transform.rotation = Quaternion.Euler(0, -60, 0);
+
+        Camera.main.GetComponent<CameraController>().isPerspectiveMode = true;
+
+
         _renderseter.RT_Size = 7.0f;
         setCamSize();
+
+        Player.Instance.transform.position = new Vector3(0,5,0);
+        Player.Instance.transform.rotation = Quaternion.Euler(0, -60, 0);
+
+
     }
+   
+
+
 }

@@ -27,6 +27,7 @@ namespace miao
         {
             this.transform.position = Player.Instance.transform.position;
         }
+        public static void Play(string audioName, AudioSource source, bool isSinglePlay) => Instance.PlayAudio(audioName, source, isSinglePlay);
 
         // 根据音频名称播放音效
         public void PlayAudio(string audioName, AudioSource source, bool isSinglePlay)
