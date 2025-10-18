@@ -35,6 +35,9 @@ Shader "Lit/UnlitToonShader"
             float4 _ShadowColor;
             CBUFFER_END
             
+            TEXTURE2D(_MainTex);
+            SAMPLER(sampler_MainTex);
+
             struct appdata
             {
                 float4 vertexOS : POSITION;
@@ -48,6 +51,7 @@ Shader "Lit/UnlitToonShader"
                 float3 normal : NORMAL;
                 float3 fragmentPos : TEXCOORD0;
                 float3 worldSpacePos : TEXCOORD1;
+                float2 uv : TEXCOORD2;
             };
 
             float4 _Color;
@@ -62,11 +66,16 @@ Shader "Lit/UnlitToonShader"
                 o.normal = normalize(mul((float3x3)unity_ObjectToWorld, v.normalOS));
                 o.fragmentPos = posnInputs.positionWS;
                 o.worldSpacePos = mul(unity_ObjectToWorld, v.vertexOS);
+                o.uv = v.uv;
                 return o;
             }
 
             float4 frag (v2f i) : SV_Target
             {
+                float4 albedoTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+                float3 baseColor = albedoTex.rgb * _Color.rgb;
+                float outAlpha = albedoTex.a * _Color.a;
+
                 // sample the xCoord
                 float4 shadowCoord = TransformWorldToShadowCoord(i.worldSpacePos);
                 Light main_light = GetMainLight(shadowCoord);
@@ -78,7 +87,7 @@ Shader "Lit/UnlitToonShader"
                 float cos = saturate(dot(lightDirection, i.normal));
                 cos = clamp(cos, 0.2, 1);
 
-                float3 col = _Color;
+                float3 col = baseColor;
                 col = col * cos * lightColor;
 
                 float count = GetAdditionalLightsCount();
@@ -88,11 +97,11 @@ Shader "Lit/UnlitToonShader"
                     
                     float diffuse = saturate(dot(i.normal, light.direction));
                     float3 radiance = light.color * light.distanceAttenuation * light.shadowAttenuation;
-                    float3 color = _Color * radiance; //* diffuse;
+                    float3 color = baseColor * radiance; //* diffuse;
                     
                     col += color;
                 }
-                return float4(col, 1);
+                return float4(col, outAlpha);
             }
             ENDHLSL
         }
