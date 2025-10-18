@@ -3,13 +3,13 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 .utmp/
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
 *.log
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
@@ -97,3 +97,27 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# =========================================
+# 自定义规则：忽略 Assets/Resources/Ignore 下的贴图和模型文件，但保留 .meta
+# =========================================
+
+# 忽略贴图
+/Assets/Resources/Ignore/**/*.png
+/Assets/Resources/Ignore/**/*.jpg
+/Assets/Resources/Ignore/**/*.jpeg
+/Assets/Resources/Ignore/**/*.tga
+/Assets/Resources/Ignore/**/*.psd
+/Assets/Resources/Ignore/**/*.tif
+/Assets/Resources/Ignore/**/*.exr
+/Assets/Resources/Ignore/**/*.hdr
+
+# 忽略模型
+/Assets/Resources/Ignore/**/*.fbx
+/Assets/Resources/Ignore/**/*.obj
+/Assets/Resources/Ignore/**/*.blend
+/Assets/Resources/Ignore/**/*.dae
+/Assets/Resources/Ignore/**/*.3ds
+
+# 注意：不忽略 .meta 文件
+# 所以 Prefab 对这些资源的引用仍然有效
