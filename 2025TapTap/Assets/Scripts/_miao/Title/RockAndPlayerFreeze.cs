@@ -31,6 +31,10 @@ namespace miao
             StartCoroutine(SpawnLoop());
         }
 
+        private void Update()
+        {
+            Player.Instance.transform.position = new Vector3(0, 2.4f, 0);
+        }
         private IEnumerator SpawnLoop()
         {
             while (true)

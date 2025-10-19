@@ -96,6 +96,13 @@ namespace miao
 
                 float speedThreshold = maxSpeed * 0.95f;  // 95% µÄ maxSpeed
 
+                Vector3 lookDir = new Vector3(cam.forward.x, 0f, cam.forward.z).normalized;
+                if (lookDir.sqrMagnitude > 0.01f)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(lookDir, Vector3.up);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
+                }
+
                 if (currentSpeed < speedThreshold)
                 {
                     body.ApplyForce(force);
