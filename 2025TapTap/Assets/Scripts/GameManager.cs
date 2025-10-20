@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 {
     [ExecuteAlways] // 编辑器和运行时都执行
 
-    private float deltaTime = 0.0f;
     [SerializeField]
     private List<GameObject> dontDestroyObjects = new List<GameObject>();
     [SerializeField] private RenderSettingsSO _renderseter;
@@ -216,7 +215,6 @@ public class GameManager : MonoBehaviour
 
         current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
         var allData = Resources.LoadAll<RecordData>("RecordData");
-        RecordManager.Instance.SyncRecordData(allData);
 
         if (current_RT_cam != null)
         {

@@ -8,7 +8,7 @@ namespace miao
             var audioTrigger = other.GetComponent<AudioTrigger>();
             if (audioTrigger != null)
             {
-                audioTrigger.gameObject.SetActive(true); // 进入触发器区域时启用音频
+                audioTrigger.enabled = true; // 进入触发器区域时启用音频
             }
         }
 
@@ -17,7 +17,7 @@ namespace miao
             var audioTrigger = other.GetComponent<AudioTrigger>();
             if (audioTrigger != null)
             {
-                audioTrigger.gameObject.SetActive(false); // 离开触发器区域时禁用音频
+                audioTrigger.enabled = false; // 离开触发器区域时禁用音频
             }
         }
     }

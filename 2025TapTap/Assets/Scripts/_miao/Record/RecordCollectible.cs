@@ -18,10 +18,7 @@ namespace miao
         }
         private IEnumerator Start()
         {
-            // 等待 RecordManager 初始化
             yield return new WaitUntil(() => RecordManager.Instance != null);
-
-            startPos = transform.position;
 
             if (recordData == null)
             {
@@ -29,14 +26,11 @@ namespace miao
                 yield break;
             }
 
-            // Debug：输出所有收集品数量
-            Debug.Log($"当前场景收集品数量: {FindObjectsOfType<RecordCollectible>().Length}");
 
-            // 已收集过则隐藏
-            if (recordData.isCollected)
-            {
+            if (RecordManager.Instance.IsCollected(recordData.recordID))
                 gameObject.SetActive(false);
-            }
+            else
+                gameObject.SetActive(true);
         }
 
         private void Update()
@@ -49,7 +43,6 @@ namespace miao
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("222");
                 Collect(other.gameObject);
             }
         }
@@ -58,7 +51,6 @@ namespace miao
         {
             RecordManager.Instance.CollectRecord(recordData);
             recordData.exceptionBehavior?.OnCollect(gameObject, recordData);
-            recordData.isCollected = true;
 
 
             // UI解锁对应音乐
@@ -66,7 +58,6 @@ namespace miao
                 RecordUIController.Instance.UnlockRecord(recordData);
 
             gameObject.SetActive(false);
-            Debug.Log("333");
         }
     }
 }

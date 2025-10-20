@@ -12,6 +12,7 @@ namespace miao
         private void OnTriggerEnter(Collider other)
         {
             var body = other.GetComponent<PhysicsBody>();
+            body.enabled = true;
             if (body != null)
             {
                 body.EnableSimulation(true);
@@ -21,6 +22,7 @@ namespace miao
         private void OnTriggerStay(Collider other)
         {
             var body = other.GetComponent<PhysicsBody>();
+            body.enabled = true;
             if (body != null && !body.isActive)
             {
                 body.EnableSimulation(true);
@@ -30,6 +32,7 @@ namespace miao
         private void OnTriggerExit(Collider other)
         {
             var body = other.GetComponent<PhysicsBody>();
+            body.enabled = false;
             if (body != null)
             {
                 body.EnableSimulation(false);

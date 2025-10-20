@@ -83,9 +83,11 @@ namespace miao
         public void EnableSimulation(bool enable)
         {
             isActive = enable;
-            rb.isKinematic = !enable;
-            rb.detectCollisions = enable;
-            enabled = enable;
+        }
+
+        private void OnEnable()
+        {
+            PhysicsSystem.Instance?.RegisterBody(this);
         }
 
         private void OnDisable()
