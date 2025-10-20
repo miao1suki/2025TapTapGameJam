@@ -64,12 +64,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-        if (Time.frameCount % 30 == 0) // 每30帧输出一次
-        {
-            int fps = Mathf.RoundToInt(1.0f / deltaTime);
-            Debug.Log("FPS: " + fps);
-        }
         //setCamSize();
         if (InputController.Instance.get_Key("Esc"))
         {
@@ -221,6 +215,8 @@ public class GameManager : MonoBehaviour
         }
 
         current_RT_cam = Camera.main.transform.GetChild(0).gameObject.GetComponent<Camera>();
+        var allData = Resources.LoadAll<RecordData>("RecordData");
+        RecordManager.Instance.SyncRecordData(allData);
 
         if (current_RT_cam != null)
         {
