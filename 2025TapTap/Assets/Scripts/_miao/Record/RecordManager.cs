@@ -20,8 +20,7 @@ namespace miao
 
         private void Update()
         {
-            // 仅调试用途，每帧打印 JSON 中的记录
-            Debug.Log("已收集记录: " + string.Join(",", collectedRecords));
+           // Debug.Log("已收集记录: " + string.Join(",", collectedRecords));
         }
 
         public bool IsCollected(string recordID)
