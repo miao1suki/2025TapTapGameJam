@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 4983713484001204}
   - component: {fileID: 33170006013231564}
   - component: {fileID: 23472881608159782}
-  - component: {fileID: 64334379153697348}
-  - component: {fileID: 114139308828303008}
+  - component: {fileID: 3144050607901759631}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -28,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610534837670258}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.74472517, z: -0, w: 0.66737133}
+  m_LocalRotation: {x: 0, y: 0.7447252, z: 0, w: 0.6673712}
   m_LocalPosition: {x: -0.0058541135, y: 0, z: -0.0052460544}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64334379153697348
-MeshCollider:
+--- !u!65 &3144050607901759631
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,22 +102,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: f6dac5689690a8549bd1bf87d782e3f6, type: 3}
---- !u!114 &114139308828303008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610534837670258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee82a03d1e50c4e4cbe9cb5afff2ca13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  destroyed_ob: {fileID: 1246413119638046, guid: eaff3a04ed124aa43af622921ebb8a54,
-    type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.0557411, y: 0.61456716, z: 2.2949767}
+  m_Center: {x: -0.005277634, y: 0.20574361, z: -5.6197214e-11}
