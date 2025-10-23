@@ -38,16 +38,6 @@ namespace miao
                 Debug.LogError(gameObject.name + " 没有获取到 Rigidbody");
             }
         }
-        void Start()
-        {
-
-        }
-
-
-        void Update()
-        {
-
-        }
 
         public void ResetPlayerHealth()
         {

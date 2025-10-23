@@ -4,13 +4,6 @@ using UnityEngine.SceneManagement;
 
 namespace miao
 {
-    public enum BodyShape
-    {
-        Sphere,
-        Box,
-        Capsule
-    }
-
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
     public class PhysicsBody : MonoBehaviour
@@ -26,13 +19,9 @@ namespace miao
         public float angularDamping = 0.8f;
         [HideInInspector] public Vector3 angularVelocity;
 
-        [Header("碰撞体形状")]
-        public BodyShape shape = BodyShape.Sphere;
-        [Tooltip("球形半径或盒子/胶囊尺寸的一般尺度")]
+        [Header("碰撞体参数（球体）")]
+        [Tooltip("球形半径")]
         public float radius = 0.5f;
-        public Vector3 boxSize = Vector3.one;      // Box 尺寸
-        public float capsuleHeight = 2f;           // Capsule 高度（沿 Y 轴）
-        public float capsuleRadius = 0.5f;         // Capsule 半径
 
         [Header("重力控制")]
         public bool useGravity = true;
@@ -126,43 +115,12 @@ namespace miao
         {
             Gizmos.color = Color.yellow;
             Vector3 center = footPoint != null ? footPoint.position : transform.position;
-
-            switch (shape)
-            {
-                case BodyShape.Sphere:
-                    Gizmos.DrawWireSphere(center, radius);
-                    break;
-
-                case BodyShape.Box:
-                    Gizmos.DrawWireCube(center, boxSize);
-                    break;
-
-                case BodyShape.Capsule:
-                    DrawWireCapsule(center, capsuleHeight, capsuleRadius);
-                    break;
-            }
+            Gizmos.DrawWireSphere(center, radius);
 
             if (useGravity && PhysicsSystem.Instance != null)
             {
                 Gizmos.color = Color.blue;
                 Gizmos.DrawLine(center, center + PhysicsSystem.Instance.gravityDirection.normalized * radius);
-            }
-        }
-
-        // 简单绘制胶囊（沿 Y 轴）
-        private void DrawWireCapsule(Vector3 center, float height, float radius)
-        {
-            // 上下半球中心
-            Vector3 up = center + Vector3.up * (height / 2 - radius);
-            Vector3 down = center - Vector3.up * (height / 2 - radius);
-            Gizmos.DrawWireSphere(up, radius);
-            Gizmos.DrawWireSphere(down, radius);
-
-            // 四条侧面线
-            Vector3[] directions = { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
-            foreach (var dir in directions)
-            {
-                Gizmos.DrawLine(up + dir * radius, down + dir * radius);
             }
         }
     }

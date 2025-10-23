@@ -68,7 +68,7 @@ namespace miao
                 Vector3 spawnPos = basePos + offset;
 
                 // 实例化岩石
-                GameObject rock = Instantiate(prefab, spawnPos, Random.rotation);
+                GameObject rock = Instantiate(prefab, spawnPos, Random.rotation, transform);
 
                 // 随机缩放
                 float scale = Random.Range(scaleRange.x, scaleRange.y);

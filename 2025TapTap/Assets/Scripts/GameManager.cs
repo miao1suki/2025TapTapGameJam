@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> dontDestroyObjects = new List<GameObject>();
     [SerializeField] private RenderSettingsSO _renderseter;
+    [SerializeField] private GameObject GameGlobalMenu;
+    [SerializeField] private GameObject ScoreTexe;
     //外部访问 RenderSettingsSO 的属性
     public RenderSettingsSO Renderseter
     {
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
         _renderseter.RT_Size = 3.0f;
         setCamSize();
 
+        ScoreTexe.SetActive(false);
+
     }
     void Start()
     {
@@ -57,6 +61,10 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         AddDontDestroyObject();
+
+        // 显示鼠标
+        Cursor.visible = true;
+
         //setCamSize();
     }
 
@@ -64,15 +72,34 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //setCamSize();
-        if (InputController.Instance.get_Key("Esc"))
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Title")
         {
-            GameExit();
+            ShowUI();
+        }
+    }
+    public void ShowUI()
+    {
+        if (!GameGlobalMenu)
+        {
+            Debug.LogError("未找到GameGlobalMenu");
         }
 
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            GameStart();
-        }
+        GameGlobalMenu.SetActive(!GameGlobalMenu.activeSelf);
+    }
+
+    public void ResetPos()
+    {
+        Player.Instance.transform.position = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y + 10.0f, Player.Instance.transform.position.z);
+    }
+
+    public void CursorON()
+    {
+        Cursor.visible = true;
+    }
+
+    public void CursorOFF()
+    {
+        Cursor.visible = false;
     }
     public void AddDontDestroyObject()
     {
@@ -181,6 +208,7 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         //此处设定应在场景切换前生效
+        Cursor.visible = false;
         Player.Instance.GetComponent<PhysicsBody>().useGravity = true;
         SetConstraints(false,true);
 
@@ -191,8 +219,11 @@ public class GameManager : MonoBehaviour
 
 
     }
-    private void GameExit()
+    public void GameExit()
     {
+        // 保存玩家最高分
+        ScoreManager.Instance?.SaveScore();
+
         PhysicsSystem.Instance.GameExit();
 
 #if UNITY_EDITOR
@@ -231,6 +262,8 @@ public class GameManager : MonoBehaviour
 
         _renderseter.RT_Size = 7.0f;
         setCamSize();
+
+        ScoreTexe.SetActive(true);
 
         Player.Instance.transform.position = new Vector3(0,5,0);
         Player.Instance.transform.rotation = Quaternion.Euler(0, -60, 0);

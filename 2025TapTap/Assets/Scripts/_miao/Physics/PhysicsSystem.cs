@@ -164,6 +164,7 @@ namespace miao
 
                     if (!a.isActive || !b.isActive) continue;
 
+                    // 使用自身半径处理球体碰撞
                     Vector3 delta = b.transform.position - a.transform.position;
                     float dist = delta.magnitude;
                     float minDist = a.radius + b.radius;
@@ -172,7 +173,7 @@ namespace miao
                     {
                         Vector3 normal = delta.normalized;
 
-                        // 动量守恒
+                        // 动量守恒计算
                         Vector3 relativeVelocity = b.velocity - a.velocity;
                         float velAlongNormal = Vector3.Dot(relativeVelocity, normal);
                         if (velAlongNormal > 0) continue;
@@ -185,7 +186,7 @@ namespace miao
                         a.velocity -= impulse / a.mass;
                         b.velocity += impulse / b.mass;
 
-                        // 施加旋转力矩
+                        // 施加旋转力矩（可选，简化惯性）
                         Vector3 contactPoint = (a.transform.position + b.transform.position) / 2f;
                         Vector3 rA = contactPoint - a.transform.position;
                         Vector3 rB = contactPoint - b.transform.position;

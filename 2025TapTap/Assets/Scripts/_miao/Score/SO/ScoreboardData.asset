@@ -18,13 +18,15 @@ MonoBehaviour:
   - "\u5927\u72D7\u53EB"
   - "\u54C8\u57FA\u4ED9"
   randomCountRange: {x: 5, y: 10}
-  scoreRange: {x: 500, y: 20000}
+  scoreRange: {x: 1000, y: 2000000}
   currentRank:
-  - name: "\u53EE\u549A\u9E21"
-    score: 16143
-  - name: "\u5927\u72D7\u53EB"
-    score: 10067
   - name: "\u54C8\u57FA\u7C73\uFF08\u4E0D\u5403\u732B\u8584\u8377\uFF09"
-    score: 3922
+    score: 820756
+  - name: "\u5927\u72D7\u53EB"
+    score: 507997
+  - name: "\u54C8\u57FA\u4ED9"
+    score: 391682
+  - name: "\u53EE\u549A\u9E21"
+    score: 315951
   - name: "\u73A9\u5BB6"
-    score: 0
+    score: 1000

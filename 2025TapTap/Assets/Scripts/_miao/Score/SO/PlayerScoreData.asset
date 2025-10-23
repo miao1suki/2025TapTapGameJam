@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: PlayerScoreData
   m_EditorClassIdentifier: 
   playerName: "\u73A9\u5BB6"
-  highScore: 0
+  currentScore: 0
+  highScore: 1000
