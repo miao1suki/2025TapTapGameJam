@@ -20,14 +20,15 @@ namespace UI
             int currentResolusionIndex = 0;
             Resolution current = Screen.currentResolution;
 
+            List<int> temp = new();
+
             for (int i = resolutions.Length - 1; i >= 0; i--)
             {
                 var target = resolutions[i];
-                if(i< resolutions.Length - 1)
                 {
-                    //
-                    var last = resolutions[i + 1];
-                    if (last.width == target.width && last.height == target.height) continue;
+                    int m = target.width * target.height;
+                    if (temp.Contains(m)) continue;
+                    else temp.Add(m);
                 }
                 if (current.width == target.width && current.height == target.height) currentResolusionIndex = options.Count;
                 dataResolutions.Add(new(target.width, target.height));
