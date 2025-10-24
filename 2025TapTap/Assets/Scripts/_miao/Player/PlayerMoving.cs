@@ -1,100 +1,102 @@
+ï»¿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace miao
 {
     public class PlayerMoving : MonoBehaviour
     {
         private Transform centerOfMass;
+        private Rigidbody rb;
+        private PhysicsBody body;
 
-        [Header("ÒÆ¶¯²ÎÊı")]
-        public float maxSpeed = 40f; // Íæ¼Ò×î´óËÙ¶È
-        public float sprintMultiplier = 2f;  // ³å´Ì±¶Êı
-        public float moveForce = 100f; // Á¦µÄ´óĞ¡
+        [Header("ç§»åŠ¨å‚æ•°")]
+        public float maxSpeed = 40f;
+        public float sprintMultiplier = 2f;
+        public float moveForce = 100f;
 
-        private int jumpCount = 0;       // µ±Ç°ÌøÔ¾¶ÎÊı
-        private int maxJump = 2;         // ×î´óÌøÔ¾´ÎÊı
-        private bool jumpBuffered = false; // ÊÇ·ñÔ¤ÊäÈë
-        private float jumpBufferTime = 0.6f; // »º³åÊ±¼ä
+        private int jumpCount = 0;
+        private int maxJump = 2;
+        private bool jumpBuffered = false;
+        private float jumpBufferTime = 0.6f;
         private float jumpBufferCounter = 0f;
         private float jumpResetTimer = 0f;
-        private float jumpResetDelay = 0.2f; // Í£Ö¹ÌøÔ¾¶à¾ÃÖØÖÃÌøÔ¾´ÎÊı
-        private float verticalThreshold = 0.05f; // ÅĞ¶ÏÊÇ·ñÓĞ´¹Ö±ÒÆ¶¯
+        private float jumpResetDelay = 0.2f;
+        private float verticalThreshold = 0.05f;
         private Vector3 lastPosition;
-        private PhysicsBody body;
-        private Rigidbody rb;
 
-        // ÓÃÓÚÉäÏß¼ì²â
-        public float groundCheckDistance = 1f; // ÉäÏß¼ì²âµÄ×î´ó¾àÀë
-        public float groundProximityThreshold = 0.2f; // Åö×²Ìå¾àÀëÍæ¼ÒµÄ×î´óãĞÖµ
+        [Header("åœ°é¢æ£€æµ‹å‚æ•°")]
+        public float groundCheckDistance = 1f;
+        public float groundProximityThreshold = 0.2f;
         private bool isGrounded;
+
+        // ------------------------------
+        // åŠ åˆ†å†·å´
+        [Header("åŠ åˆ†å†·å´ï¼ˆåŒç±»äº‹ä»¶å†·å´ï¼‰")]
+        public float cooldownDuration = 1.5f;
+        private Dictionary<string, float> lastScoreTime = new Dictionary<string, float>();
+
+        // ------------------------------
+        // ğŸª¶ æ»ç©ºç³»ç»Ÿ
+        [Header("æ»ç©ºç³»ç»Ÿå‚æ•°")]
+        public float airborneStartDelay = 0.8f;   // è¶…è¿‡æ­¤æ—¶é—´å¼€å§‹åŠ åˆ†
+        public float airborneScoreInterval = 0.1f; // æ¯æ¬¡åŠ åˆ†é—´éš”
+        public float airborneMultiplierInterval = 1f; // æ¯æ¬¡åŠ å€ç‡é—´éš”
+        private float airborneTime = 0f;
+        private float scoreTimer = 0f;
+        private float multiplierTimer = 0f;
+        private bool wasAirborne = false;
 
         private void Awake()
         {
-            if (rb == null) rb = GetComponent<Rigidbody>();
-            if (centerOfMass == null)
-            {
-                Transform t = transform.Find("CenterOfMass");
-                if (t != null) centerOfMass = t;
-            }
+            rb = GetComponent<Rigidbody>();
             body = GetComponent<PhysicsBody>();
-            if (!body)
-            {
-                Debug.LogWarning("PlayerÃ»ÓĞÕÒµ½PhysicsBody");
-            }
 
-            // ÉèÖÃ¸ÕÌåµÄÖØĞÄ
-            if (centerOfMass != null)
+            if (rb == null)
+                Debug.LogError("PlayerMoving: æœªæ‰¾åˆ° Rigidbodyï¼");
+            if (body == null)
+                Debug.LogWarning("PlayerMoving: æœªæ‰¾åˆ° PhysicsBodyï¼");
+
+            Transform t = transform.Find("CenterOfMass");
+            if (t != null)
             {
+                centerOfMass = t;
                 rb.centerOfMass = centerOfMass.localPosition;
-            }
-            else
-            {
-                Debug.LogWarning("[PlayerMoving] Î´ÕÒµ½ CenterOfMass ½Úµã£¡");
             }
         }
 
         void Update()
         {
-            CheckJumpInput();  // ÌøÔ¾¼ì²â
+            CheckJumpInput();
             HandleJumpReset();
-
-            // ¼ì²âµØÃæ½Ó´¥
             CheckGrounded();
+            HandleAirborne(); // æ¯å¸§å¤„ç†æ»ç©ºç³»ç»Ÿ
         }
 
         private void FixedUpdate()
         {
-            if (!rb)
-            {
-                Debug.LogError("Î´ÕÒµ½rb");
-                return;
-            }
+            if (!rb) return;
 
-            // ÒÆ¶¯´¦Àí
             Vector3 moveDir = Vector3.zero;
             Transform cam = Camera.main.transform;
 
-            // »ùÓÚÏà»úË®Æ½Ãæ·½Ïò
             Vector3 camForward = new Vector3(cam.forward.x, 0f, cam.forward.z).normalized;
             Vector3 camRight = new Vector3(cam.right.x, 0f, cam.right.z).normalized;
 
-            if (InputController.Instance.get_Key("W")) moveDir += camForward;
-            if (InputController.Instance.get_Key("S")) moveDir -= camForward;
-            if (InputController.Instance.get_Key("A")) moveDir -= camRight;
-            if (InputController.Instance.get_Key("D")) moveDir += camRight;
+            if (InputController.Instance.get_Key("W")) { moveDir += camForward; TryTriggerScore("å‰è¿›!", 1); }
+            if (InputController.Instance.get_Key("S")) { moveDir -= camForward; TryTriggerScore("åé€€!", 1); }
+            if (InputController.Instance.get_Key("A")) { moveDir -= camRight; TryTriggerScore("å·¦è½¬!", 1); }
+            if (InputController.Instance.get_Key("D")) { moveDir += camRight; TryTriggerScore("å³è½¬!", 1); }
 
             if (moveDir.magnitude > 0f)
             {
                 moveDir.Normalize();
-
                 float currentMultiplier = InputController.Instance.get_Key("Left_Shift") ? sprintMultiplier : 1f;
                 Vector3 force = moveDir * moveForce * currentMultiplier * rb.mass;
 
-                // ¼ÆËãµ±Ç°ËÙ¶ÈµÄË®Æ½·ÖÁ¿£¨X, Z£©
                 Vector3 velocityFlat = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-                float currentSpeed = velocityFlat.magnitude;  // µ±Ç°ËÙ¶ÈµÄ´óĞ¡
-
-                float speedThreshold = maxSpeed * 0.95f;  // 95% µÄ maxSpeed
+                float currentSpeed = velocityFlat.magnitude;
+                float speedThreshold = maxSpeed * 0.95f;
 
                 Vector3 lookDir = new Vector3(cam.forward.x, 0f, cam.forward.z).normalized;
                 if (lookDir.sqrMagnitude > 0.01f)
@@ -124,58 +126,44 @@ namespace miao
                 }
             }
 
-            // ±£Ö¤Ë®Æ½ÔË¶¯
+            // ä¿æŒæ°´å¹³é€Ÿåº¦
             Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.velocity = flatVel + Vector3.up * rb.velocity.y;
 
-            HandleJump();  // ÌøÔ¾Âß¼­
+            HandleJump();
         }
 
-        // ÉäÏß¼ì²âµØÃæ
         private void CheckGrounded()
         {
+            // å°„çº¿èµ·ç‚¹ä»è„šåº•ç¨å¾®å¾€ä¸Šï¼ˆé˜²æ­¢è´´åœ°æ—¶è¯¯åˆ¤ï¼‰
+            Vector3 rayOrigin = transform.position + Vector3.down * 0.9f;  // æ ¹æ®ä½ çš„æ¨¡å‹é«˜åº¦è°ƒæ•´
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance))
-            {
-                // Èç¹ûÉäÏß¼ì²âµ½Åö×²Ìå£¬¼ÌĞø¼ì²âÊÇ·ñ×ã¹»½Ó½ü
-                Vector3 closestPoint = hit.collider.ClosestPointOnBounds(transform.position);
-                float distance = Vector3.Distance(closestPoint, transform.position);
 
-                if (distance <= groundProximityThreshold)
-                {
-                    // Ö»ÓĞµ±½Ó´¥µã×ã¹»½Ó½üÊ±£¬²ÅÈÏÎªÊÇÔÚµØÃæÉÏ
-                    isGrounded = true;
-                }
-                else
-                {
-                    isGrounded = false;
-                }
+            if (Physics.Raycast(rayOrigin, Vector3.down, out hit, groundCheckDistance))
+            {
+                float distance = hit.distance;
+                isGrounded = distance <= groundProximityThreshold;
             }
             else
             {
                 isGrounded = false;
             }
 
-            // ¸üĞÂ PhysicsBody µÄ isGrounded ×´Ì¬
             body.isGrounded = isGrounded;
         }
 
         private void HandleJumpReset()
         {
             float verticalDelta = transform.position.y - lastPosition.y;
-
             if (verticalDelta < -verticalThreshold || (jumpBuffered && jumpBufferCounter <= 0f))
-            {
                 jumpBuffered = false;
-            }
 
             if (Mathf.Abs(verticalDelta) < verticalThreshold && !jumpBuffered)
             {
                 jumpResetTimer += Time.deltaTime;
-
                 if (jumpResetTimer >= jumpResetDelay)
                 {
-                    jumpCount = 0; // ÖØÖÃÌøÔ¾´ÎÊı
+                    jumpCount = 0;
                     jumpResetTimer = 0f;
                 }
             }
@@ -183,27 +171,23 @@ namespace miao
             {
                 jumpResetTimer = 0f;
             }
-
             lastPosition = transform.position;
         }
 
         private void CheckJumpInput()
         {
-            // Èç¹û°´ÏÂÌøÔ¾¼üÇÒÌøÔ¾´ÎÊıÎ´´ïµ½×î´óÖµ
             if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJump)
             {
                 jumpBuffered = true;
                 jumpBufferCounter = jumpBufferTime;
             }
 
-            // Èç¹û´ïµ½×î´óÌøÔ¾´ÎÊı£¬Í£Ö¹ÌøÔ¾ÊäÈë
             if (jumpCount >= maxJump)
             {
-                jumpBuffered = false;  // ½áÊøÔ¤ÊäÈë
-                jumpBufferCounter = 0f; // ÖØÖÃ¼ÆÊ±Æ÷
+                jumpBuffered = false;
+                jumpBufferCounter = 0f;
             }
 
-            // Èç¹û»º³åÊ±¼ä½áÊø£¬ÌøÔ¾Ô¤ÊäÈë½áÊø
             if (jumpBuffered)
             {
                 jumpBufferCounter -= Time.deltaTime;
@@ -219,23 +203,86 @@ namespace miao
                 jumpCount++;
                 jumpBuffered = false;
 
-                // ÌøÔ¾½×¶ÎÖ´ĞĞ²»Í¬µÄÌøÔ¾Á¦
                 switch (jumpCount)
                 {
                     case 1:
-                        body.ApplyForce(new Vector3(0, 150f * 6 * body.mass, 0));  // Ò»¶ÎÌø
+                        body.ApplyForce(new Vector3(0, 150f * 6 * body.mass, 0));
+                        TryTriggerScore("è·³è·ƒ!", 1);
                         break;
                     case 2:
-                        body.ApplyForce(new Vector3(0, 100f * 6 * body.mass, 0));  // ¶ş¶ÎÌø
-                        break;
-                    case 3:
-                        body.ApplyForce(new Vector3(0, 500f * 6 * body.mass, 0));  // µ¯·É
-                        break;
-                    case 4:
-                        body.ApplyForce(new Vector3(Random.Range(-100f, 100f) * 6 * body.mass, Random.Range(-100f, 40f) * 30 * body.mass, Random.Range(-100f, 100f) * 6 * body.mass)); // Ëæ»úÂÒ·É
+                        body.ApplyForce(new Vector3(0, 100f * 6 * body.mass, 0));
+                        TryTriggerScore("äºŒæ®µè·³!!", 2);
                         break;
                 }
             }
+        }
+
+        private void TryTriggerScore(string type, int value)
+        {
+            if (ScoreTrigger.Instance == null) return;
+            float now = Time.time;
+
+            if (lastScoreTime.TryGetValue(type, out float last))
+            {
+                if (now - last < cooldownDuration) return;
+            }
+
+            lastScoreTime[type] = now;
+            ScoreTrigger.Instance.AddScore(type, value);
+        }
+
+        // ğŸª¶ å¤„ç†æ»ç©ºé€»è¾‘
+        private void HandleAirborne()
+        {
+            //  åœ¨ Title åœºæ™¯ä¸­ä¸æ‰§è¡Œæ»ç©ºé€»è¾‘
+            if (SceneManager.GetActiveScene().name == "Title")
+                return;
+
+            if (!body.isGrounded)
+            {
+                airborneTime += Time.deltaTime;
+
+                if (airborneTime > airborneStartDelay)
+                {
+                    scoreTimer += Time.deltaTime;
+                    multiplierTimer += Time.deltaTime;
+
+                    if (scoreTimer >= airborneScoreInterval)
+                    {
+                        ScoreTrigger.Instance?.AddScore("æ»ç©º", 100);
+                        scoreTimer = 0f;
+                    }
+
+                    if (multiplierTimer >= airborneMultiplierInterval)
+                    {
+                        if (ScoreTrigger.Instance != null)
+                            ScoreTrigger.Instance.AddMultiplier();
+                        multiplierTimer = 0f;
+                    }
+
+                    // å½“æ»ç©ºè¾¾åˆ° 5 ç§’æ—¶æ‰§è¡Œä¸€æ¬¡
+                    if (airborneTime >= 5f && !wasAirborne)
+                    {
+                        wasAirborne = true;
+                        OnLongAirborne(); // ç•™æ¥å£
+                    }
+                }
+            }
+            else
+            {
+                // è½åœ° -> é‡ç½®æ‰€æœ‰
+                airborneTime = 0f;
+                scoreTimer = 0f;
+                multiplierTimer = 0f;
+                wasAirborne = false;
+            }
+        }
+
+        // 5 ç§’æ»ç©ºæ¥å£
+        private void OnLongAirborne()
+        {
+            
+            // è¿™é‡Œç•™åšç‰¹æ®Šé€»è¾‘ï¼Œæ¯”å¦‚è§¦å‘ç‰¹æ•ˆã€ç‰¹æ®ŠçŠ¶æ€ç­‰
         }
     }
 }

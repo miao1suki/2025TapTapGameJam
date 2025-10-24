@@ -4,6 +4,8 @@ using UnityEngine;
 using miao;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UI;
+using ScoreSystem;
 
 
 public class GameManager : MonoBehaviour
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("开启后 RT_Pixel 会随 RT_Size 自动变化")]
     public bool autoPixelControl = true;
 
+    public ScoreText text;
 
     public static GameManager Instance;//单例
     private void OnValidate()
@@ -76,6 +79,10 @@ public class GameManager : MonoBehaviour
         {
             ShowUI();
         }
+        else if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Title")
+        {
+            GameExit();
+        }
     }
     public void ShowUI()
     {
@@ -85,6 +92,10 @@ public class GameManager : MonoBehaviour
         }
 
         GameGlobalMenu.SetActive(!GameGlobalMenu.activeSelf);
+    }
+    public void SetScoreText(int score)
+    {
+        text.Value = score;
     }
 
     public void ResetPos()

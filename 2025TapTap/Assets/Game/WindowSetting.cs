@@ -16,54 +16,74 @@ namespace UI
 
         private void Start()
         {
+            // 先强制全屏启动
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+
+            InitializeResolutionDropdown();
+            InitializeFullScreenDropdown();
+        }
+
+        private void InitializeResolutionDropdown()
+        {
             Resolution[] resolutions = Screen.resolutions;
-            int currentResolusionIndex = 0;
+            int currentResolutionIndex = 0;
             Resolution current = Screen.currentResolution;
 
-            List<int> temp = new();
+            List<int> added = new();
 
+            // 倒序遍历，去重
             for (int i = resolutions.Length - 1; i >= 0; i--)
             {
-                var target = resolutions[i];
-                {
-                    int m = target.width * target.height;
-                    if (temp.Contains(m)) continue;
-                    else temp.Add(m);
-                }
-                if (current.width == target.width && current.height == target.height) currentResolusionIndex = options.Count;
-                dataResolutions.Add(new(target.width, target.height));
-                options.Add(new($"{target.width}×{target.height}"));
+                var r = resolutions[i];
+                int m = r.width * r.height;
+                if (added.Contains(m)) continue;
+                added.Add(m);
+
+                dataResolutions.Add(new Vector2Int(r.width, r.height));
+                options.Add(new TMP_Dropdown.OptionData($"{r.width}×{r.height}"));
+
+                if (r.width == current.width && r.height == current.height)
+                    currentResolutionIndex = options.Count - 1;
             }
 
             resolutionDropdown.options = options;
-            resolutionDropdown.value = currentResolusionIndex;
 
-            {
-                fullScreenModeOptions.Add(new("独占全屏"));
-                fullScreenModeOptions.Add(new("无边框窗口（全屏）"));
-                fullScreenModeOptions.Add(new("窗口"));
-            }
-            fullScreenModeDropdown.options = fullScreenModeOptions;
-            fullScreenModeDropdown.value = Screen.fullScreenMode switch
-            {
-                FullScreenMode.ExclusiveFullScreen => 0,
-                FullScreenMode.FullScreenWindow => 1,
-                FullScreenMode.Windowed => 2,
-                _ => 1,
-            };
+            // 解绑事件，先设置默认值，避免触发
+            resolutionDropdown.onValueChanged.RemoveAllListeners();
+            resolutionDropdown.value = currentResolutionIndex;
+            resolutionDropdown.RefreshShownValue();
 
+            // 绑定事件
             resolutionDropdown.onValueChanged.AddListener(index =>
             {
                 var resolution = dataResolutions[index];
                 Screen.SetResolution(resolution.x, resolution.y, Screen.fullScreenMode);
             });
+        }
+
+        private void InitializeFullScreenDropdown()
+        {
+            fullScreenModeOptions.Clear();
+            fullScreenModeOptions.Add(new TMP_Dropdown.OptionData("独占全屏"));
+            fullScreenModeOptions.Add(new TMP_Dropdown.OptionData("无边框窗口（全屏）"));
+            fullScreenModeOptions.Add(new TMP_Dropdown.OptionData("窗口"));
+
+            fullScreenModeDropdown.options = fullScreenModeOptions;
+
+            // 解绑事件，先设置默认值
+            fullScreenModeDropdown.onValueChanged.RemoveAllListeners();
+            fullScreenModeDropdown.value = 0; // 默认独占全屏
+            fullScreenModeDropdown.RefreshShownValue();
+
+            // 绑定事件
             fullScreenModeDropdown.onValueChanged.AddListener(index =>
             {
                 Screen.fullScreenMode = fullScreenModeDropdown.value switch
                 {
                     0 => FullScreenMode.ExclusiveFullScreen,
+                    1 => FullScreenMode.FullScreenWindow,
                     2 => FullScreenMode.Windowed,
-                    _ => FullScreenMode.FullScreenWindow
+                    _ => FullScreenMode.ExclusiveFullScreen
                 };
             });
         }

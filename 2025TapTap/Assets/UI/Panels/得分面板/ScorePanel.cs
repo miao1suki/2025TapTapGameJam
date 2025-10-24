@@ -7,7 +7,7 @@ namespace UI
     public class ScorePanel : MonoBehaviour
     {
         [SerializeField] private ScoreText scoreText;
-        [SerializeField] private ScoreText totalScoreText;
+        [SerializeField] public ScoreText totalScoreText;
         [SerializeField] private MultiplierCell multiplierCell;
         [SerializeField] private ScoreCell scoreCell;
         [SerializeField] private RectTransform fillArea;

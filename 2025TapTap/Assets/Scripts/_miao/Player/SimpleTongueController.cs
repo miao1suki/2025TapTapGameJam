@@ -14,11 +14,17 @@ namespace miao
         public float maxStretch = 1f;        // 最大 z 缩放增量
         public float maxMoveForward = 0.5f;  // 最大前移距离
 
+        [Header("加分冷却（仅针对加分）")]
+        public float scoreCooldown = 1.5f;   // 仅加分的冷却（秒）
+
         private bool isExtending = false;
         private float currentStretch = 0f;
         private float currentForward = 0f;
         private Vector3 baseLocalScale;
         private Vector3 baseLocalPosition;
+
+        // 加分冷却计时器（Only for scoring）
+        private float scoreCooldownTimer = 0f;
 
         void Start()
         {
@@ -35,13 +41,36 @@ namespace miao
         void Update()
         {
             HandleInput();
+
+            // 更新加分冷却计时（只影响是否能再次加分，不影响舌头动作）
+            if (scoreCooldownTimer > 0f)
+                scoreCooldownTimer -= Time.deltaTime;
+
             UpdateTongueRootRotation();
             UpdateTongue();
+
+            // 如果正在伸舌并且冷却到位，则触发一次加分并重置冷却
+            if (isExtending && scoreCooldownTimer <= 0f)
+            {
+                TryScore();
+            }
         }
 
         void HandleInput()
         {
+            // 保持舌头伸缩响应立即生效（不受冷却限制）
             isExtending = Input.GetMouseButton(0);
+        }
+
+        void TryScore()
+        {
+            // 只处理存在的 ScoreTrigger 单例
+            if (ScoreTrigger.Instance != null)
+            {
+                ScoreTrigger.Instance.AddScore("伸出舌头", 10);
+            }
+            // 重置加分冷却（仅影响加分）
+            scoreCooldownTimer = scoreCooldown;
         }
 
         void UpdateTongueRootRotation()

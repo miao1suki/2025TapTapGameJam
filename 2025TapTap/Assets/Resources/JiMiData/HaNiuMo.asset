@@ -18,6 +18,6 @@ MonoBehaviour:
   SpeedMultiplier: 1.5
   JumpPower: 1.5
   Gravity: 1.3
-  IsUnlocked: 0
+  IsUnlocked: 1
   Description: "\u4F60\u54C8\u725B\u9B54\u5462\uFF1F\n\u5BF9\u725B\u54C8\u6C14\u5341\u6B21\u89E3\u9501"
   UnlockCondition: {fileID: 11400000, guid: 84d0ff9432a3444458d19fbbdb86f4b1, type: 2}

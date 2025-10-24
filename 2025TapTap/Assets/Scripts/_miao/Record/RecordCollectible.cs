@@ -57,6 +57,8 @@ namespace miao
             if (RecordUIController.Instance != null)
                 RecordUIController.Instance.UnlockRecord(recordData);
 
+            ScoreTrigger.Instance.AddScore("»ñµÃ½±±­!!!",114514);
+
             gameObject.SetActive(false);
         }
     }

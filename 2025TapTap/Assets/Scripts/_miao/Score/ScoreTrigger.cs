@@ -1,14 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UI; // 引用 ScorePanel 的命名空间
+using UI;
+using TMPro; // 引用 ScorePanel 的命名空间
 
 namespace miao
 {
     public class ScoreTrigger : MonoBehaviour
     {
-        [SerializeField] private ScorePanel scorePanel; // 需要在Inspector挂上ScorePanel
+        [SerializeField] private ScorePanel scorePanel;
+        [SerializeField] private TextMeshProUGUI text;
         private List<GameObject> objectsInTrigger = new List<GameObject>();
 
+        public static ScoreTrigger Instance;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
         private void Update()
         {
             if (Player.Instance != null)
@@ -30,12 +38,13 @@ namespace miao
                 // 增加倍率
                 if (scorePanel != null)
                 {
-                    scorePanel.IncreaseMultiplier();
+                    AddMultiplier();
 
                     // 根据列表数量增加分数，每个物体分值可以固定
                     int scorePerObject = 100;
                     int totalScore = objectsInTrigger.Count * scorePerObject;
                     scorePanel.IncreaseScore(totalScore);
+                    AddScore("碰撞物体",totalScore);
                 }
             }
         }
@@ -47,6 +56,17 @@ namespace miao
             {
                 objectsInTrigger.Remove(other.gameObject);
             }
+        }
+
+        public void AddScore(string name,int score)
+        {
+            text.SetText(name);
+            scorePanel.IncreaseScore(score);
+        }
+
+        public void AddMultiplier()
+        {
+            scorePanel.IncreaseMultiplier();
         }
     }
 }
