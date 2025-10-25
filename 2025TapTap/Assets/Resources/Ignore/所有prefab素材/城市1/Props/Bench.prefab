@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4983713484001204}
   - component: {fileID: 33170006013231564}
   - component: {fileID: 23472881608159782}
-  - component: {fileID: 64334379153697348}
-  - component: {fileID: 114139308828303008}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -85,40 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64334379153697348
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610534837670258}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: f6dac5689690a8549bd1bf87d782e3f6, type: 3}
---- !u!114 &114139308828303008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610534837670258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee82a03d1e50c4e4cbe9cb5afff2ca13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  destroyed_ob: {fileID: 1246413119638046, guid: eaff3a04ed124aa43af622921ebb8a54,
-    type: 3}

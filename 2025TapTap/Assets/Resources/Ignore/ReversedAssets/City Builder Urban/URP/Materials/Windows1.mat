@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Windows1
-  m_Shader: {fileID: 4800000, guid: 18d6025930dc593438eb7d09b1f12397, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 6b2899a30acc36740affcac479d22de6,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -348,7 +349,7 @@ Material:
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _WindowTint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4044993426815044521
+--- !u!114 &9155363691678676707
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Props1_Albedo
-  m_Shader: {fileID: 4800000, guid: 18d6025930dc593438eb7d09b1f12397, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 7fab6e5891575684fb5e18f03affa6f7,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -274,7 +275,7 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6914063568209066276
+--- !u!114 &6565272106937174637
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

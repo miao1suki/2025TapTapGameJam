@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7521384391763407015
+--- !u!114 &-8872598407935014767
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,7 +34,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Windows3
-  m_Shader: {fileID: 4800000, guid: 18d6025930dc593438eb7d09b1f12397, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 6b2899a30acc36740affcac479d22de6,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
