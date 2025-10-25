@@ -394,7 +394,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 347489457}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 939222783077019418, guid: 1f33acf7edba8934fa5f2e4a964d1292,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -527,113 +526,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9140722982798198296, guid: 1f33acf7edba8934fa5f2e4a964d1292,
         type: 3}
-=======
-    - target: {fileID: 939222783077019418, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 223.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 939222783077019418, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 89.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 623.4596
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 135
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -119
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5208391127334469599, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_Name
-      value: "\u5DE6\u4E0A\u89D2\u5F97\u5206"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5208391127334469599, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027769593790613194, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 117.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027769593790613194, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 61.5992
-      objectReference: {fileID: 0}
-    - target: {fileID: 9140722982798198296, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
->>>>>>> origin/Orange_新建场景
       propertyPath: m_isRightToLeft
       value: 0
       objectReference: {fileID: 0}
@@ -644,12 +536,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
 --- !u!224 &1143459446 stripped
 RectTransform:
-<<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292,
     type: 3}
-=======
-  m_CorrespondingSourceObject: {fileID: 1303513785721485494, guid: 1f33acf7edba8934fa5f2e4a964d1292, type: 3}
->>>>>>> origin/Orange_新建场景
   m_PrefabInstance: {fileID: 1143459445}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1474448597
@@ -660,7 +548,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 347489457}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896,
         type: 3}
       propertyPath: m_Pivot.x
@@ -826,237 +713,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8766935241405846841, guid: fe0ad9e1bc2be5342967d42f7d94f896,
         type: 3}
-=======
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -21
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4565281970600895306, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5525687393197839112, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_Name
-      value: AchievementPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5525687393197839112, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 347489456}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[0].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[1].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: f82fe4395d7dd134992f18bddbdb3e81, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[1].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[2].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 5db1bb604c9a511498f8c71867337e1f, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[2].isCompleted
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[3].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: f858c41c6267c7b48959b39f65aacc75, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[4].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: f858c41c6267c7b48959b39f65aacc75, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: goldAchievements.Array.data[5].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: f858c41c6267c7b48959b39f65aacc75, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[0].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 593e490c940f5b34abecb0059bb9ac21, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[0].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[1].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: eb3064ae108b6f34495fa36b6d9d8208, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[1].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[2].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: b880683db39402f4f8be35e69b1f1cb9, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[2].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[3].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 9cf324a197e0a0e4097c0a89bc21a07c, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: bronzeAchievements.Array.data[3].isCompleted
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[0].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: aaf893fc8a7936943bdd2ce41ab5a4a2, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[0].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[1].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 0a018801f051a22468cd678afdf41e62, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[1].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[2].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 370ce570cb3a2544f9ce6218cdee074d, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[2].isCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[3].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 7ef99c7cbaa7f3a46a48478777218d6a, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[3].isCompleted
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[4].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 012cd1db3a60ef944a021e373f473f64, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[5].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: da3b088969b5d894b8c355109ff7acf6, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[6].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 0a2c689213f63c840988e273be90de50, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[7].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 25c5004d60eeb5041b3140dd035f3377, type: 2}
-    - target: {fileID: 7483546402916801325, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: silverAchievements.Array.data[8].achievement
-      value: 
-      objectReference: {fileID: 11400000, guid: 25c5004d60eeb5041b3140dd035f3377, type: 2}
-    - target: {fileID: 8766935241405846841, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8766935241405846841, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
->>>>>>> origin/Orange_新建场景
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -1067,12 +723,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
 --- !u!224 &1474448598 stripped
 RectTransform:
-<<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896,
     type: 3}
-=======
-  m_CorrespondingSourceObject: {fileID: 4010739978924147853, guid: fe0ad9e1bc2be5342967d42f7d94f896, type: 3}
->>>>>>> origin/Orange_新建场景
   m_PrefabInstance: {fileID: 1474448597}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1858535567
@@ -1083,7 +735,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 347489457}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1191,93 +842,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7635546417583093345, guid: cbab2a2d1803ff149b31d3b69d86beec,
         type: 3}
-=======
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7635546417583093345, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
-      propertyPath: m_Name
-      value: AchievementPopup
-      objectReference: {fileID: 0}
-    - target: {fileID: 7635546417583093345, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
->>>>>>> origin/Orange_新建场景
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1288,12 +852,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
 --- !u!224 &1906915494 stripped
 RectTransform:
-<<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec,
     type: 3}
-=======
-  m_CorrespondingSourceObject: {fileID: 3653097820426675678, guid: cbab2a2d1803ff149b31d3b69d86beec, type: 3}
->>>>>>> origin/Orange_新建场景
   m_PrefabInstance: {fileID: 1858535567}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

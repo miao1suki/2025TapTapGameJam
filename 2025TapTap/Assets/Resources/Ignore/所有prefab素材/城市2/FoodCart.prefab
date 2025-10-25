@@ -25,7 +25,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676798758541215807}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.293, y: -0.095, z: 0.359}
@@ -33,14 +32,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.293, y: -0.095, z: 0.359}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 5
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1026552847920191962
 MeshFilter:
@@ -61,18 +52,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,10 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &845679158754973880
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +108,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845679158754973880}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.598, y: -0.144, z: 1.135}
@@ -134,14 +115,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.598, y: -0.144, z: 1.135}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 15
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &794037089198957776
 MeshFilter:
@@ -162,18 +135,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -198,10 +165,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1133842690972682464
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +191,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133842690972682464}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.2801, y: 0.104, z: -0.7589}
@@ -235,14 +198,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2801, y: 0.104, z: -0.7589}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 6
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7630790670924843742
 MeshFilter:
@@ -263,18 +218,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -299,10 +248,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1561251436764413585
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +274,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561251436764413585}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.146, y: 0.05, z: -0.464}
@@ -336,14 +281,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.146, y: 0.05, z: -0.464}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 0
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8159865992410242153
 MeshFilter:
@@ -364,18 +301,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -400,10 +331,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139773746591128
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +357,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139773746591128}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0989, y: 0.2496, z: -0.8096}
@@ -437,14 +364,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0989, y: 0.2496, z: -0.8096}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 29
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139773746591135
 MeshFilter:
@@ -465,18 +384,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -501,10 +414,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139773958732354
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +440,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139773958732354}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.115, y: -0.095, z: 0.359}
@@ -538,14 +447,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.115, y: -0.095, z: 0.359}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 20
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139773958732353
 MeshFilter:
@@ -566,18 +467,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -602,10 +497,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139774097763103
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +523,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139774097763103}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.039, y: -0.068, z: 0.741}
@@ -639,14 +530,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039, y: -0.068, z: 0.741}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 25
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139774097763170
 MeshFilter:
@@ -667,18 +550,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -703,10 +580,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139774142086142
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +606,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139774142086142}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.591, y: -0.294, z: 0.127}
@@ -740,14 +613,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.591, y: -0.294, z: 0.127}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 16
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139774142086141
 MeshFilter:
@@ -768,18 +633,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -804,10 +663,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139774285735048
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +689,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139774285735048}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.27, y: -0.08, z: 0.075}
@@ -841,14 +696,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -0.08, z: 0.075}
-  m_LocalScale: {x: 0.89586, y: 0.89586, z: 0.89586}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 18
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139774285735055
 MeshFilter:
@@ -869,18 +716,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -905,10 +746,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139774488114065
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +772,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139774488114065}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.123, y: -0.068, z: 0.741}
@@ -942,14 +779,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.123, y: -0.068, z: 0.741}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 26
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139774488114068
 MeshFilter:
@@ -970,18 +799,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1006,10 +829,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139774777995521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +855,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139774777995521}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.054, y: -0.095, z: 0.138}
@@ -1043,14 +862,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.054, y: -0.095, z: 0.138}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 21
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139774777995524
 MeshFilter:
@@ -1071,18 +882,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1107,10 +912,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139775033579281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +938,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139775033579281}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.203, y: -0.08, z: 0.075}
@@ -1144,14 +945,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.203, y: -0.08, z: 0.075}
-  m_LocalScale: {x: 0.89586, y: 0.89586, z: 0.89586}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 19
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139775033579284
 MeshFilter:
@@ -1172,18 +965,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1208,10 +995,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139775287560673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1021,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139775287560673}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.57, y: -0.373, z: -1.2}
@@ -1245,14 +1028,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.57, y: -0.373, z: -1.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 24
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139775287560676
 MeshFilter:
@@ -1273,18 +1048,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1309,10 +1078,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139775691954608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1104,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139775691954608}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.333, y: -0.08, z: 0.075}
@@ -1346,14 +1111,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.333, y: -0.08, z: 0.075}
-  m_LocalScale: {x: 0.89586, y: 0.89586, z: 0.89586}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 17
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139775691954615
 MeshFilter:
@@ -1374,18 +1131,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1410,10 +1161,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139775814390974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1187,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139775814390974}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.2933, y: 0.001, z: 0.7675}
@@ -1447,14 +1194,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2933, y: 0.001, z: 0.7675}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 28
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139775814390973
 MeshFilter:
@@ -1475,18 +1214,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1511,10 +1244,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139775814908998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1270,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139775814908998}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.564, y: -0.393, z: -1.061}
@@ -1548,14 +1277,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.564, y: -0.393, z: -1.061}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 22
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139775814908997
 MeshFilter:
@@ -1576,18 +1297,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1612,10 +1327,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139775840770133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,7 +1353,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139775840770133}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.2619, y: -0.073, z: 0.85}
@@ -1649,14 +1360,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2619, y: -0.073, z: 0.85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 27
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139775840770136
 MeshFilter:
@@ -1677,18 +1380,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1713,10 +1410,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1656139775869373198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1436,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656139775869373198}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.567, y: -0.373, z: -1.351}
@@ -1750,14 +1443,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.567, y: -0.373, z: -1.351}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 23
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1656139775869373197
 MeshFilter:
@@ -1778,18 +1463,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1814,10 +1493,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1763613394686478216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,7 +1519,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763613394686478216}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.288, y: -0.307, z: -1.295}
@@ -1851,14 +1526,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.288, y: -0.307, z: -1.295}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 2
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6414264800171968206
 MeshFilter:
@@ -1879,18 +1546,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1915,10 +1576,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &1890002799709175208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,17 +1601,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890002799709175208}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.5750839, z: 0, w: 0.8180945}
   m_LocalPosition: {x: 19.635416, y: 1.249, z: 12.37166}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
-=======
-  m_LocalRotation: {x: -0, y: 0.5750845, z: -0, w: 0.81809396}
-  m_LocalPosition: {x: 19.635416, y: 1.249, z: 12.37166}
-  m_LocalScale: {x: 0.89, y: 0.89, z: 0.89}
->>>>>>> origin/Orange_新建场景
   m_Children:
   - {fileID: 7551690838514906813}
   - {fileID: 5355500381438038086}
@@ -1986,10 +1638,6 @@ Transform:
   - {fileID: 1656139775814390975}
   - {fileID: 1656139773746591129}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-=======
-  m_RootOrder: 0
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 70.211006, z: 0}
 --- !u!65 &1656139774793617629
 BoxCollider:
@@ -1999,7 +1647,6 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890002799709175208}
   m_Material: {fileID: 0}
-<<<<<<< HEAD
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2011,11 +1658,6 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-=======
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
->>>>>>> origin/Orange_新建场景
   m_Size: {x: 1, y: 2.7432737, z: 2.9323263}
   m_Center: {x: 0.00000013577842, y: -0.011433108, z: -0.05290066}
 --- !u!1 &2746137543635437216
@@ -2043,7 +1685,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2746137543635437216}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.033, y: -0.068, z: 0.741}
@@ -2051,14 +1692,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.033, y: -0.068, z: 0.741}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 4
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4097821197168539254
 MeshFilter:
@@ -2079,18 +1712,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2115,10 +1742,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &2942052763267756875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,7 +1768,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2942052763267756875}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.152, y: 0.104, z: -0.803}
@@ -2152,14 +1775,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.152, y: 0.104, z: -0.803}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 7
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1184162122797564478
 MeshFilter:
@@ -2180,18 +1795,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2216,10 +1825,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &3971582624824900690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2245,7 +1851,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971582624824900690}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.583, y: -0.144, z: 0.836}
@@ -2253,14 +1858,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.583, y: -0.144, z: 0.836}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 12
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &321354323932415338
 MeshFilter:
@@ -2281,18 +1878,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2317,10 +1908,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &4746733710934484694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,7 +1934,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4746733710934484694}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.601, y: -0.144, z: 0.984}
@@ -2354,14 +1941,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.601, y: -0.144, z: 0.984}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 14
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8336746480673515720
 MeshFilter:
@@ -2382,18 +1961,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2418,10 +1991,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &5151384595679568007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,7 +2018,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5151384595679568007}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.000000029802322, y: -0.000000014901161, z: 0}
@@ -2456,14 +2025,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000029802322, y: -0.000000014901161, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 9
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1324428648006233459
 MeshFilter:
@@ -2484,18 +2045,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2520,10 +2075,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!64 &1656139774997420053
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2532,7 +2084,6 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5151384595679568007}
   m_Material: {fileID: 0}
-<<<<<<< HEAD
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2544,11 +2095,6 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-=======
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
->>>>>>> origin/Orange_新建场景
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8378914597586779873, guid: ec9392fc9e90e8c4e9aa8c8f7a91512d, type: 3}
@@ -2577,7 +2123,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6091022522698208145}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0418, y: 0.104, z: -0.8058}
@@ -2585,14 +2130,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0418, y: 0.104, z: -0.8058}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 8
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9071726133693274819
 MeshFilter:
@@ -2613,18 +2150,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2649,10 +2180,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &7057924908295756121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,7 +2206,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7057924908295756121}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.32, y: -0.308, z: -0.842}
@@ -2686,14 +2213,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32, y: -0.308, z: -0.842}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 1
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1625416340545427051
 MeshFilter:
@@ -2714,18 +2233,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2750,10 +2263,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &7751009764394955318
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,7 +2289,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7751009764394955318}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.3331, y: -0.073, z: 0.6713}
@@ -2787,14 +2296,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3331, y: -0.073, z: 0.6713}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 3
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2325305984983517157
 MeshFilter:
@@ -2815,18 +2316,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2851,10 +2346,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &7996409309346373612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,7 +2372,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7996409309346373612}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.584, y: -0.155, z: 0.698}
@@ -2888,14 +2379,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.584, y: -0.155, z: 0.698}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 13
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2082594249643528156
 MeshFilter:
@@ -2916,18 +2399,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2952,10 +2429,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &8557713760545897568
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,7 +2455,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8557713760545897568}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.604, y: -0.164, z: 1.274}
@@ -2989,14 +2462,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.604, y: -0.164, z: 1.274}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 11
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4363141098372242321
 MeshFilter:
@@ -3017,18 +2482,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3053,10 +2512,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
 --- !u!1 &8588037204875503817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,7 +2538,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8588037204875503817}
-<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.59, y: -0.27957, z: 0.124}
@@ -3090,14 +2545,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1256912372817782546}
-=======
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59, y: -0.27957, z: 0.124}
-  m_LocalScale: {x: 0.89586, y: 0.89586, z: 0.89586}
-  m_Children: []
-  m_Father: {fileID: 1256912372817782546}
-  m_RootOrder: 10
->>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8844537299140657619
 MeshFilter:
@@ -3118,18 +2565,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-<<<<<<< HEAD
   m_StaticShadowCaster: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-<<<<<<< HEAD
   m_RayTraceProcedural: 0
-=======
->>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3154,7 +2595,4 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
-=======
->>>>>>> origin/Orange_新建场景
