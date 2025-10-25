@@ -121,3 +121,11 @@ InitTestScene*.unity*
 
 # 注意：不忽略 .meta 文件
 # 所以 Prefab 对这些资源的引用仍然有效
+
+# =========================================
+# 例外规则：保留 Cats/Meshes 下的文件
+# =========================================
+
+# 取消忽略该目录下的所有文件
+!Assets/Resources/Ignore/AnimX Animals/Cats/Meshes/
+!Assets/Resources/Ignore/AnimX Animals/Cats/Meshes/**
