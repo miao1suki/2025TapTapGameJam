@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8b88551e81d974fb72f3fd0a28a9bc, type: 3}
+  m_Name: "\u56BC\u6FC0\u7C73"
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementSystem.Achievement
+  icon: {fileID: 21300000, guid: 1c1b474ccf0afaf4caaf535f475fe635, type: 3}
+  achievementName: "\u56BC\u6FC0\u7C73 "
+  achievementDescription: "\u5403\u4E1C\u897F10\u6B21\r\n"
+  completionPrompt: 

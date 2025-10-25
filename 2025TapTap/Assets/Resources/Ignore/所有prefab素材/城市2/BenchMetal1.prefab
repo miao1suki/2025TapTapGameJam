@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 6473387155181875492}
   - component: {fileID: 7960618961496587905}
   - component: {fileID: 5304461414401755723}
+<<<<<<< HEAD
   - component: {fileID: -198504540932395112}
+=======
+  - component: {fileID: 2959013440790793207}
+>>>>>>> origin/Orange_新建场景
   m_Layer: 0
   m_Name: BenchMetal1
   m_TagString: Untagged
@@ -26,6 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953134173714738078}
+<<<<<<< HEAD
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,6 +38,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+>>>>>>> origin/Orange_新建场景
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7960618961496587905
 MeshFilter:
@@ -53,12 +66,18 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+<<<<<<< HEAD
   m_StaticShadowCaster: 0
+=======
+>>>>>>> origin/Orange_新建场景
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+<<<<<<< HEAD
   m_RayTraceProcedural: 0
+=======
+>>>>>>> origin/Orange_新建场景
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,15 +102,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &-198504540932395112
 BoxCollider:
+=======
+--- !u!64 &2959013440790793207
+MeshCollider:
+>>>>>>> origin/Orange_新建场景
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953134173714738078}
   m_Material: {fileID: 0}
+<<<<<<< HEAD
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -105,3 +130,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7435558, y: 1.075934, z: 0.7879416}
   m_Center: {x: -0.0034020543, y: 0.53206664, z: -0.098854244}
+=======
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2477511411847689622, guid: d892e05857e212a4fa7598fe0910f1b3, type: 3}
+>>>>>>> origin/Orange_新建场景
