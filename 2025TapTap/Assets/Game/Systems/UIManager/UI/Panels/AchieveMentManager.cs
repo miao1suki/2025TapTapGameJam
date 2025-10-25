@@ -39,7 +39,7 @@ namespace AchievementSystem
 
         internal void PopupAchievement(Achievement achievement)
         {
-            PopupWindow p = Instantiate(popup);  //pouupwindow
+            PopupWindow p = Instantiate(popup, SingleCanvas.Ins.canvas.transform, false);  //pouupwindow
             p.SetAchievement(achievement);
             p.transform.SetParent(SingleCanvas.Ins.canvas.transform);
         }
