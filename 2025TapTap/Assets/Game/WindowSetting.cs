@@ -13,12 +13,23 @@ namespace UI
         private List<TMP_Dropdown.OptionData> options = new();
         private List<TMP_Dropdown.OptionData> fullScreenModeOptions = new();
         private List<Vector2Int> dataResolutions = new();
+        private void Awake()
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+
+            // 获取显示器支持的最高分辨率
+            Resolution[] resolutions = Screen.resolutions;
+            if (resolutions.Length > 0)
+            {
+                Resolution maxRes = resolutions[resolutions.Length - 1]; 
+                Screen.SetResolution(maxRes.width, maxRes.height, Screen.fullScreenMode);
+            }
+
+        }
 
         private void Start()
         {
-            // 先强制全屏启动
-            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
-
+            
             InitializeResolutionDropdown();
             InitializeFullScreenDropdown();
         }
@@ -72,7 +83,7 @@ namespace UI
 
             // 解绑事件，先设置默认值
             fullScreenModeDropdown.onValueChanged.RemoveAllListeners();
-            fullScreenModeDropdown.value = 0; // 默认独占全屏
+            fullScreenModeDropdown.value = 1; // 默认全屏窗口
             fullScreenModeDropdown.RefreshShownValue();
 
             // 绑定事件
@@ -83,7 +94,7 @@ namespace UI
                     0 => FullScreenMode.ExclusiveFullScreen,
                     1 => FullScreenMode.FullScreenWindow,
                     2 => FullScreenMode.Windowed,
-                    _ => FullScreenMode.ExclusiveFullScreen
+                    _ => FullScreenMode.FullScreenWindow
                 };
             });
         }

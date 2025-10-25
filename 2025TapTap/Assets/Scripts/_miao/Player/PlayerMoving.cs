@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ namespace miao
         private Transform centerOfMass;
         private Rigidbody rb;
         private PhysicsBody body;
+        private Animator animator;
+        [SerializeField] GameObject model;
 
         [Header("移动参数")]
         public float maxSpeed = 40f;
@@ -46,16 +49,21 @@ namespace miao
         private float scoreTimer = 0f;
         private float multiplierTimer = 0f;
         private bool wasAirborne = false;
+        private bool staySet = false; // 记录 Animator Stay 是否开启
+        private float airborneDamageStartTime = 0.2f; // 记录滞空造成伤害的间隔时间
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
             body = GetComponent<PhysicsBody>();
+            animator = GetComponentInChildren<Animator>();
 
             if (rb == null)
                 Debug.LogError("PlayerMoving: 未找到 Rigidbody！");
             if (body == null)
                 Debug.LogWarning("PlayerMoving: 未找到 PhysicsBody！");
+            if (animator == null)
+                Debug.LogWarning("PlayerMoving: 未找到 Animator！");
 
             Transform t = transform.Find("CenterOfMass");
             if (t != null)
@@ -71,6 +79,28 @@ namespace miao
             HandleJumpReset();
             CheckGrounded();
             HandleAirborne(); // 每帧处理滞空系统
+
+            // F 键触发攻击
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                ScoreTrigger.Instance.AddScore("！！哈气！！",6);
+                ScoreTrigger.Instance.AddMultiplier();
+                StartCoroutine(TriggerAnimatorBool("Fight", 0.1f));
+            }
+        }
+
+        private void LateUpdate()
+        {
+            if(model)
+            {
+                model.transform.localPosition = new Vector3(0f, -0.74f, 0f);
+                model.transform.localRotation = Quaternion.identity;
+            }
+            else
+            {
+                Debug.LogWarning("未设置模型");
+            }
+
         }
 
         private void FixedUpdate()
@@ -83,11 +113,26 @@ namespace miao
             Vector3 camForward = new Vector3(cam.forward.x, 0f, cam.forward.z).normalized;
             Vector3 camRight = new Vector3(cam.right.x, 0f, cam.right.z).normalized;
 
+            // ----------- 移动输入 -------------
             if (InputController.Instance.get_Key("W")) { moveDir += camForward; TryTriggerScore("前进!", 1); }
             if (InputController.Instance.get_Key("S")) { moveDir -= camForward; TryTriggerScore("后退!", 1); }
             if (InputController.Instance.get_Key("A")) { moveDir -= camRight; TryTriggerScore("左转!", 1); }
             if (InputController.Instance.get_Key("D")) { moveDir += camRight; TryTriggerScore("右转!", 1); }
 
+            // ----------- 动画参数更新 -------------
+            if (animator != null)
+            {
+                // 将移动方向转换为相对于摄像机的局部坐标
+                float moveX = Vector3.Dot(moveDir, camRight);
+                float moveY = Vector3.Dot(moveDir, camForward);
+
+                animator.SetFloat("MoveX", moveX, 0.1f, Time.fixedDeltaTime); // 平滑过渡
+                animator.SetFloat("MoveY", moveY, 0.1f, Time.fixedDeltaTime);
+
+            }
+            
+
+            // ----------- 实际移动 -------------
             if (moveDir.magnitude > 0f)
             {
                 moveDir.Normalize();
@@ -98,6 +143,7 @@ namespace miao
                 float currentSpeed = velocityFlat.magnitude;
                 float speedThreshold = maxSpeed * 0.95f;
 
+                // ----------- 玩家朝向旋转 -------------
                 Vector3 lookDir = new Vector3(cam.forward.x, 0f, cam.forward.z).normalized;
                 if (lookDir.sqrMagnitude > 0.01f)
                 {
@@ -105,6 +151,7 @@ namespace miao
                     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
                 }
 
+                // ----------- 速度限制和施力 -------------
                 if (currentSpeed < speedThreshold)
                 {
                     body.ApplyForce(force);
@@ -129,6 +176,9 @@ namespace miao
             // 保持水平速度
             Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.velocity = flatVel + Vector3.up * rb.velocity.y;
+            // 更新 Animator MoveSpeed
+            float speedSqr = flatVel.sqrMagnitude;
+            animator.SetFloat("MoveSpeed", speedSqr, 0.1f, Time.fixedDeltaTime);
 
             HandleJump();
         }
@@ -231,10 +281,10 @@ namespace miao
             ScoreTrigger.Instance.AddScore(type, value);
         }
 
-        // 🪶 处理滞空逻辑
+        // 处理滞空逻辑
         private void HandleAirborne()
         {
-            //  在 Title 场景中不执行滞空逻辑
+            // 在 Title 场景中不执行滞空逻辑
             if (SceneManager.GetActiveScene().name == "Title")
                 return;
 
@@ -242,8 +292,10 @@ namespace miao
             {
                 airborneTime += Time.deltaTime;
 
+                // --- 滞空开始延迟 ---
                 if (airborneTime > airborneStartDelay)
                 {
+                    // 加分逻辑
                     scoreTimer += Time.deltaTime;
                     multiplierTimer += Time.deltaTime;
 
@@ -255,28 +307,71 @@ namespace miao
 
                     if (multiplierTimer >= airborneMultiplierInterval)
                     {
-                        if (ScoreTrigger.Instance != null)
-                            ScoreTrigger.Instance.AddMultiplier();
+                        ScoreTrigger.Instance?.AddMultiplier();
                         multiplierTimer = 0f;
                     }
 
-                    // 当滞空达到 5 秒时执行一次
+                    // 滞空超过5秒执行一次特殊事件
                     if (airborneTime >= 5f && !wasAirborne)
                     {
                         wasAirborne = true;
                         OnLongAirborne(); // 留接口
                     }
+
+                    // 动画触发（仅设置一次）
+                    if (!staySet)
+                    {
+                        staySet = true;
+                        animator.SetBool("Stay", true);
+                    }
                 }
             }
             else
             {
-                // 落地 -> 重置所有
+                // 落地 -> 重置所有逻辑
+                if (staySet)
+                {
+                    animator.SetBool("Stay", false);
+                    staySet = false;
+
+                    // 落地时结算滞空扣血
+                    float extraTime = airborneTime - airborneStartDelay;
+                    if (extraTime > 0f)
+                    {
+                        int tickCount = Mathf.FloorToInt(extraTime / airborneDamageStartTime);
+                        
+                        int lostHealth = Mathf.FloorToInt(tickCount) * 10;
+                        Player.Instance.ChangePlayerHealth(-lostHealth);
+                        CheckPlayerHealth();
+                    }
+                }
+
                 airborneTime = 0f;
                 scoreTimer = 0f;
                 multiplierTimer = 0f;
                 wasAirborne = false;
             }
         }
+
+        //  检查玩家生命值，触发死亡动画
+        private void CheckPlayerHealth()
+        {
+            if (Player.Instance._PlayerHealth <= 0)
+            {
+                Player.Instance.ResetPlayerHealth();
+                StartCoroutine(TriggerAnimatorBool("Dead", 0.5f));
+                ScoreTrigger.Instance.AddScore("昏昏倒地",44444);
+            }
+        }
+
+        //  通用延时清除标签协程
+        private IEnumerator TriggerAnimatorBool(string paramName, float duration)
+        {
+            animator.SetBool(paramName, true);
+            yield return new WaitForSeconds(duration);
+            animator.SetBool(paramName, false);
+        }
+
 
         // 5 秒滞空接口
         private void OnLongAirborne()
