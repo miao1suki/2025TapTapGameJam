@@ -354,13 +354,13 @@ namespace miao
         }
 
         //  检查玩家生命值，触发死亡动画
-        private void CheckPlayerHealth()
+        public void CheckPlayerHealth()
         {
             if (Player.Instance._PlayerHealth <= 0)
             {
                 Player.Instance.ResetPlayerHealth();
                 StartCoroutine(TriggerAnimatorBool("Dead", 0.5f));
-                ScoreTrigger.Instance.AddScore("昏昏倒地",44444);
+                ScoreTrigger.Instance.AddScore("昏昏倒地",444);
             }
         }
 
