@@ -41,7 +41,7 @@ namespace miao
                     AddMultiplier();
 
                     // 根据列表数量增加分数，每个物体分值可以固定
-                    int scorePerObject = 100;
+                    int scorePerObject = 50;
                     int totalScore = objectsInTrigger.Count * scorePerObject;
                     scorePanel.IncreaseScore(totalScore);
                     AddScore("碰撞物体",totalScore);

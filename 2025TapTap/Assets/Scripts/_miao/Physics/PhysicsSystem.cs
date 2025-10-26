@@ -217,10 +217,17 @@ namespace miao
 
                 if (!body.isActive) continue;
 
+
                 // 静态物体碰撞检测
                 foreach (var col in staticColliders)
                 {
                     if (!col.enabled) continue;
+
+                    if (col is MeshCollider meshCol && !meshCol.convex)
+                        continue; // 非凸 MeshCollider 跳过
+
+                    if (col is TerrainCollider)
+                        continue; // 地形跳过
 
                     Vector3 contactPoint = body.footPoint != null ? body.footPoint.position : body.transform.position;
                     Vector3 closest = col.ClosestPoint(contactPoint);

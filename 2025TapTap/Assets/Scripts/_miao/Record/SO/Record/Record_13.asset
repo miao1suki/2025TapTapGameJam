@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec80d43ee2014b4e8aa58d6d305c1e2, type: 3}
+  m_Name: Record_13
+  m_EditorClassIdentifier: 
+  recordID: Record_13
+  recordName: "\u6210\u7EE9-114514"
+  musicClip: {fileID: 0}
+  exceptionBehavior: {fileID: 11400000, guid: d4c865cfdfa80ed4cba2bdae315359da, type: 2}

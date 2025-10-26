@@ -111,6 +111,7 @@ InitTestScene*.unity*
 /Assets/Resources/Ignore/**/*.tif
 /Assets/Resources/Ignore/**/*.exr
 /Assets/Resources/Ignore/**/*.hdr
+/Assets/Resources/Ignore/**/*.wav
 
 # 忽略模型
 /Assets/Resources/Ignore/**/*.fbx
