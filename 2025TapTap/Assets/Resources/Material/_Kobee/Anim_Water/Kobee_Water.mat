@@ -38,17 +38,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Dpethfade: 81.5
-    - _FoamAmount: 131.49
-    - _FoamCutOff: 3.16
-    - _FoamScale: 150
-    - _FoamSpeed: 4.01
+    - _Dpethfade: 50.08
+    - _FoamAmount: 11.79
+    - _FoamCutOff: 31.3
+    - _FoamScale: 17.9
+    - _FoamSpeed: 0
     - _Opacity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReFractStrengrh: 2.4
-    - _UVScale: 13
-    - _UVSpeed: 0.3
+    - _UVScale: 2.53
+    - _UVSpeed: 0.1
     m_Colors:
     - _Color: {r: 0.10120233, g: 0.7484276, b: 0.6114022, a: 0.8352941}
     - _Color_1: {r: 0.031940874, g: 0.34917694, b: 0.5345911, a: 0.17254902}
