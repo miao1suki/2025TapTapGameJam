@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8b88551e81d974fb72f3fd0a28a9bc, type: 3}
   m_Name: "\u6211\u770B\u4E86\u4ECB\u7ECD"
   m_EditorClassIdentifier: Assembly-CSharp::AchievementSystem.Achievement
-  icon: {fileID: 21300000, guid: 9d625c8a3e68cb04891960edffb3c159, type: 3}
+  icon: {fileID: 21300000, guid: 43624881dd5910547ba64ae683d6a8db, type: 3}
   achievementName: "\u6211\u770B\u4E86\u4ECB\u7ECD"
-  achievementDescription: "\u7B49\u5F85\u4ECB\u7ECD\u7ED3\u675F"
+  achievementDescription: "\u5B8C\u6210\u65B0\u624B\u6559\u7A0B"
   completionPrompt: 

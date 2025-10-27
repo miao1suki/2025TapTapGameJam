@@ -17,6 +17,7 @@ namespace AchievementSystem
     {
         [SerializeField] internal Achievement achievement;
         [SerializeField] internal bool isCompleted;
+        public bool IsCompleted => isCompleted;
 
         internal void Enable()
         {

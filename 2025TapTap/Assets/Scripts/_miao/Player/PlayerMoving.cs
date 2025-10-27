@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using AchievementSystem;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,6 +28,7 @@ namespace miao
         private float jumpResetDelay = 0.2f;
         private float verticalThreshold = 0.05f;
         private Vector3 lastPosition;
+        public bool useMove = true;
 
         [Header("地面检测参数")]
         public float groundCheckDistance = 1f;
@@ -114,10 +116,14 @@ namespace miao
             Vector3 camRight = new Vector3(cam.right.x, 0f, cam.right.z).normalized;
 
             // ----------- 移动输入 -------------
-            if (InputController.Instance.get_Key("W")) { moveDir += camForward; TryTriggerScore("前进!", 1); }
-            if (InputController.Instance.get_Key("S")) { moveDir -= camForward; TryTriggerScore("后退!", 1); }
-            if (InputController.Instance.get_Key("A")) { moveDir -= camRight; TryTriggerScore("左转!", 1); }
-            if (InputController.Instance.get_Key("D")) { moveDir += camRight; TryTriggerScore("右转!", 1); }
+
+            if (useMove)
+            {
+                if (InputController.Instance.get_Key("W")) { moveDir += camForward; TryTriggerScore("前进!", 1); }
+                if (InputController.Instance.get_Key("S")) { moveDir -= camForward; TryTriggerScore("后退!", 1); }
+                if (InputController.Instance.get_Key("A")) { moveDir -= camRight; TryTriggerScore("左转!", 1); }
+                if (InputController.Instance.get_Key("D")) { moveDir += camRight; TryTriggerScore("右转!", 1); }
+            }
 
             // ----------- 动画参数更新 -------------
             if (animator != null)
@@ -311,8 +317,8 @@ namespace miao
                         multiplierTimer = 0f;
                     }
 
-                    // 滞空超过5秒执行一次特殊事件
-                    if (airborneTime >= 5f && !wasAirborne)
+                    // 滞空超过10秒执行一次特殊事件
+                    if (airborneTime >= 10f && !wasAirborne)
                     {
                         wasAirborne = true;
                         OnLongAirborne(); // 留接口
@@ -358,10 +364,22 @@ namespace miao
         {
             if (Player.Instance._PlayerHealth <= 0)
             {
+                useMove = false;
                 Player.Instance.ResetPlayerHealth();
                 StartCoroutine(TriggerAnimatorBool("Dead", 0.5f));
                 ScoreTrigger.Instance.AddScore("昏昏倒地",444);
+                if (!AchievementManager.Ins.IsCompleted(Checker.Instance.achievement8))
+                {
+                    Checker.Instance.Done(Checker.Instance.achievement8);
+                }
+
+                StartCoroutine(RestoreMovementAfterDelay(3f));
             }
+        }
+        private IEnumerator RestoreMovementAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            useMove = true; // 恢复移动          
         }
 
         //  通用延时清除标签协程
@@ -373,11 +391,10 @@ namespace miao
         }
 
 
-        // 5 秒滞空接口
+        // 10 秒滞空接口
         private void OnLongAirborne()
         {
-            
-            // 这里留做特殊逻辑，比如触发特效、特殊状态等
+            Checker.Instance.Done(Checker.Instance.achievement9);
         }
     }
 }

@@ -1,3 +1,4 @@
+using AchievementSystem;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -52,6 +53,57 @@ namespace miao
         public void SetPlayerHealth(int health)
         {
             _PlayerHealth += health;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+
+            if (collision.gameObject.CompareTag("Water"))
+            {
+                // 加分
+                ScoreTrigger.Instance.AddScore("掉入水中", 500);
+                if (!AchievementManager.Ins.IsCompleted(Checker.Instance.achievement4))
+                {
+                    Checker.Instance.Done(Checker.Instance.achievement4);
+                }
+
+                // 找到最近的重生点
+                Transform nearestRespawn = FindNearestRespawnPoint();
+
+                if (nearestRespawn != null)
+                {
+                    // 传送玩家
+                    Player.Instance.transform.position = nearestRespawn.position;
+                    Player.Instance.transform.rotation = nearestRespawn.rotation; //同步朝向
+                }
+                else
+                {
+                    Debug.LogWarning("没有找到任何重生点！");
+                }
+            }
+        }
+
+        private Transform FindNearestRespawnPoint()
+        {
+            // 获取所有带 Tag 的重生点
+            GameObject[] respawnPoints = GameObject.FindGameObjectsWithTag("RespawnPoint");
+            if (respawnPoints.Length == 0) return null;
+
+            Transform nearest = respawnPoints[0].transform;
+            float nearestDist = Vector3.Distance(Player.Instance.transform.position, nearest.position);
+
+            // 遍历找到最近的
+            foreach (GameObject point in respawnPoints)
+            {
+                float dist = Vector3.Distance(Player.Instance.transform.position, point.transform.position);
+                if (dist < nearestDist)
+                {
+                    nearestDist = dist;
+                    nearest = point.transform;
+                }
+            }
+
+            return nearest;
         }
 
         public void SetJiMiType(JiMiType newType)

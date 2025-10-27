@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using UI;
 using ScoreSystem;
+using AchievementSystem;
 
 
 public class GameManager : MonoBehaviour
@@ -236,6 +237,8 @@ public class GameManager : MonoBehaviour
         ScoreManager.Instance?.SaveScore();
 
         PhysicsSystem.Instance.GameExit();
+
+        AchievementManager.Ins.SaveAchievements();
 
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false; // 在编辑器模式下停止播放

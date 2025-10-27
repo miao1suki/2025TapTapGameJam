@@ -3305,6 +3305,7 @@ GameObject:
   - component: {fileID: 3899281593038180583}
   - component: {fileID: 6063940811294444983}
   - component: {fileID: 8237001656643278427}
+  - component: {fileID: 2084032968968285509}
   m_Layer: 0
   m_Name: Cat_NPC_5
   m_TagString: Untagged
@@ -3428,6 +3429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9230a6c96747943be0c184f8f45453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: 50
 --- !u!136 &3899281593038180583
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3488,8 +3490,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: ce180e85ebaf1a04ba98992240c171b9, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3574,6 +3576,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2084032968968285509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628329776534093154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8298b71377eeb4c81b630ccd98a624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSinglePlay: 1
+  detectionShape: 0
+  detectionRadius: 1.4
+  detectionSize: {x: 5, y: 5, z: 5}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isEnabledAtStart: 0
 --- !u!1 &7489046242181415556
 GameObject:
   m_ObjectHideFlags: 0

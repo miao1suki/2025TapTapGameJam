@@ -30,6 +30,13 @@ namespace miao
         private float pitch;
         private float currentDistance;
 
+        [SerializeField] private GameObject camWater;
+        public static CameraController Instance;
+        private void Awake()
+        {
+            Instance = this;
+        }
+
         private void Start()
         {
             player = Player.Instance.transform;
@@ -49,6 +56,13 @@ namespace miao
 
             HandlePerspectiveMode();
         }
+
+        public void setCamWater(bool active)
+        {
+            if (!active) return;
+            camWater.SetActive(active);
+        }
+
 
         private void HandleOrthographicMode()
         {

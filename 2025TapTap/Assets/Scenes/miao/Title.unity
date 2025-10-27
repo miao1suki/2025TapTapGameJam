@@ -162,7 +162,7 @@ MonoBehaviour:
   - {fileID: 396217548}
   - {fileID: 1456135589}
   - {fileID: 1628021250}
-  - {fileID: 1385369893}
+  - {fileID: 682246355}
   - {fileID: 1231742430}
   _renderseter: {fileID: 11400000, guid: 70fdde356dccf384ab0ced3322c39e8d, type: 2}
   GameGlobalMenu: {fileID: 1329530250}
@@ -811,6 +811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769000676816792868, guid: 091555fadc6abc94ca464fea8091fb76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844822974577581739, guid: 091555fadc6abc94ca464fea8091fb76,
         type: 3}
@@ -1770,13 +1775,25 @@ MonoBehaviour:
   goldAchievements:
   - achievement: {fileID: 11400000, guid: fe780943226b49c4c98ac5a93fce5e63, type: 2}
     isCompleted: 0
-  - achievement: {fileID: 11400000, guid: b880683db39402f4f8be35e69b1f1cb9, type: 2}
+  - achievement: {fileID: 11400000, guid: 0a2c689213f63c840988e273be90de50, type: 2}
+    isCompleted: 0
+  - achievement: {fileID: 11400000, guid: f82fe4395d7dd134992f18bddbdb3e81, type: 2}
     isCompleted: 0
   silverAchievements:
-  - achievement: {fileID: 11400000, guid: 76f3908695ea0984c8eda268838c5239, type: 2}
+  - achievement: {fileID: 11400000, guid: 08ee891c90df4504190dad9ecfc385a4, type: 2}
+    isCompleted: 0
+  - achievement: {fileID: 11400000, guid: 48c95fc9fb091a347b336b951202915f, type: 2}
+    isCompleted: 0
+  - achievement: {fileID: 11400000, guid: 012cd1db3a60ef944a021e373f473f64, type: 2}
+    isCompleted: 0
+  - achievement: {fileID: 11400000, guid: eb3064ae108b6f34495fa36b6d9d8208, type: 2}
+    isCompleted: 0
+  - achievement: {fileID: 11400000, guid: da3b088969b5d894b8c355109ff7acf6, type: 2}
     isCompleted: 0
   bronzeAchievements:
-  - achievement: {fileID: 11400000, guid: 012cd1db3a60ef944a021e373f473f64, type: 2}
+  - achievement: {fileID: 11400000, guid: b880683db39402f4f8be35e69b1f1cb9, type: 2}
+    isCompleted: 0
+  - achievement: {fileID: 11400000, guid: 593e490c940f5b34abecb0059bb9ac21, type: 2}
     isCompleted: 0
 --- !u!1 &446968105
 GameObject:
@@ -2198,6 +2215,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675110836}
   m_CullTransparentMesh: 1
+--- !u!1 &682246355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682246357}
+  - component: {fileID: 682246356}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &682246356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682246355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3874faa203c1d1e489950aa9bb4213f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionAsset: {fileID: -944628639613478452, guid: 1a34184ae979c7144adf3a59fb57ac83,
+    type: 3}
+--- !u!4 &682246357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682246355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7805476, y: 6.888946, z: -6.0057244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &721930757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3159,6 +3222,7 @@ MonoBehaviour:
   maxDistance: 8
   zoomSmooth: 10
   isPerspectiveMode: 0
+  camWater: {fileID: 0}
 --- !u!114 &854006498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4386,7 +4450,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd2bbad77975ff4a866feaf15af917c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievement: {fileID: 11400000, guid: fe780943226b49c4c98ac5a93fce5e63, type: 2}
+  achievement1: {fileID: 11400000, guid: 0a2c689213f63c840988e273be90de50, type: 2}
+  achievement2: {fileID: 11400000, guid: b880683db39402f4f8be35e69b1f1cb9, type: 2}
+  achievement3: {fileID: 11400000, guid: fe780943226b49c4c98ac5a93fce5e63, type: 2}
+  achievement4: {fileID: 11400000, guid: 08ee891c90df4504190dad9ecfc385a4, type: 2}
+  achievement5: {fileID: 11400000, guid: eb3064ae108b6f34495fa36b6d9d8208, type: 2}
+  achievement6: {fileID: 11400000, guid: 593e490c940f5b34abecb0059bb9ac21, type: 2}
+  achievement7: {fileID: 11400000, guid: 012cd1db3a60ef944a021e373f473f64, type: 2}
+  achievement8: {fileID: 11400000, guid: 48c95fc9fb091a347b336b951202915f, type: 2}
+  achievement9: {fileID: 11400000, guid: f82fe4395d7dd134992f18bddbdb3e81, type: 2}
+  achievement10: {fileID: 11400000, guid: da3b088969b5d894b8c355109ff7acf6, type: 2}
 --- !u!4 &1231742432
 Transform:
   m_ObjectHideFlags: 0
@@ -4742,6 +4815,7 @@ MonoBehaviour:
   maxSpeed: 30
   sprintMultiplier: 2
   moveForce: 100
+  useMove: 1
   groundCheckDistance: 1
   groundProximityThreshold: 0.2
   cooldownDuration: 1.5
@@ -4798,7 +4872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8298b71377eeb4c81b630ccd98a624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioName: "\u7206\u70B8\u97F3\u6548_01"
   isSinglePlay: 1
   detectionShape: 2
   detectionRadius: 1.11
@@ -4817,8 +4890,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: ce180e85ebaf1a04ba98992240c171b9, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4955,52 +5028,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1385369893
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1385369895}
-  - component: {fileID: 1385369894}
-  m_Layer: 0
-  m_Name: InputManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1385369894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385369893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3874faa203c1d1e489950aa9bb4213f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionAsset: {fileID: -944628639613478452, guid: 1a34184ae979c7144adf3a59fb57ac83,
-    type: 3}
---- !u!4 &1385369895
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385369893}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7805476, y: 6.888946, z: -6.0057244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6942,5 +6969,5 @@ SceneRoots:
   - {fileID: 1174904628}
   - {fileID: 862285417}
   - {fileID: 1231742432}
-  - {fileID: 1385369895}
   - {fileID: 1628021251}
+  - {fileID: 682246357}

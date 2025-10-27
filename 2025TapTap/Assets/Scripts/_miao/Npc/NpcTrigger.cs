@@ -1,3 +1,4 @@
+using AchievementSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,11 @@ namespace miao
                 ScoreTrigger.Instance.AddScore("Äã¾ªÈÅÁË" + gameObject.name, 500);
                 Player.Instance.ChangePlayerHealth(-attack);
                 Player.Instance.GetComponent<PlayerMoving>().CheckPlayerHealth();
+
+                if (!AchievementManager.Ins.IsCompleted(Checker.Instance.achievement7))
+                {
+                    Checker.Instance.Done(Checker.Instance.achievement7);
+                }
             }
 
             if(other.CompareTag("Player") && audioSource)

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AchievementSystem.Achievement
   icon: {fileID: 21300000, guid: ad4d38a1f6783ce4d98d9beb100534df, type: 3}
   achievementName: "\u4E16\u754C\u7684\u5C3D\u5934 "
-  achievementDescription: "\u5230\u8FBE\u5730\u56FE\u6700\u8FDC\u7684\u8FB9\u754C\r\n"
+  achievementDescription: "\u5230\u8FBE\u5730\u56FE\u8FB9\u754C\u5916"
   completionPrompt: 
