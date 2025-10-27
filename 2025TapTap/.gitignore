@@ -130,3 +130,6 @@ InitTestScene*.unity*
 # 取消忽略该目录下的所有文件
 !Assets/Resources/Ignore/AnimX Animals/Cats/Meshes/
 !Assets/Resources/Ignore/AnimX Animals/Cats/Meshes/**
+!Assets/Resources/Ignore/AnimX Animals/Cats/Meshes/Animations
+!Assets/Resources/Ignore/AnimX Animals/Cats/Meshes/Animations**
+

@@ -6,6 +6,14 @@ namespace miao.day_and_night
 {
     public class DayAndNight : MonoBehaviour
     {
+        [System.Serializable]
+        public class LightData
+        {
+            public Light light;
+            public float nightIntensity = 0.3f; // 夜间亮度
+        }
+
+
         [Header("渐变(Gradients)")]
         [Tooltip("雾颜色渐变")]
         [SerializeField] private Gradient fogGradient;//雾颜色渐变
@@ -21,7 +29,7 @@ namespace miao.day_and_night
         [SerializeField] private Material skyboxMaterial;
 
         [Header("变量(Variables)")]
-        [SerializeField] private float dayDurationInSeconds = 60f;//一天持续时间（秒）
+        [SerializeField] public float dayDurationInSeconds = 60f;//一天持续时间（秒）
         [SerializeField] private float rotationSpeed = 1f;
 
         [Header("光源自动开关控制")]
@@ -35,6 +43,16 @@ namespace miao.day_and_night
 
         private bool nightLightsTriggered = false;
         private bool dayLightsTriggered = false;
+
+        public static DayAndNight Instance;
+        private void Awake()
+        {
+            Instance = this;
+        }
+        private void Start()
+        {
+            CollectSceneLights();
+        }
 
         private void Update()
         {
@@ -122,6 +140,28 @@ namespace miao.day_and_night
         private void OnApplicationQuit()
         {
             skyboxMaterial.SetColor("_Tint", new Color(0.5f, 0.5f, 0.5f));
+        }
+
+        private void CollectSceneLights()
+        {
+            lights.Clear();
+
+            Light[] allLights = FindObjectsOfType<Light>();
+
+            foreach (var l in allLights)
+            {
+                if (l == null) continue;
+                if (l.type == LightType.Point || l.type == LightType.Spot)
+                {
+                    LightData data = new LightData
+                    {
+                        light = l,
+                        nightIntensity = l.intensity // 默认保存当前亮度为夜间亮度
+                    };
+                    lights.Add(data);
+                }
+            }
+
         }
     }
 

@@ -9,7 +9,12 @@ namespace miao
     {
         public override void OnCollect(GameObject collector, RecordData recordData)
         {
+            Player.Instance.transform.rotation = Quaternion.Euler(-180,0,0);
             // TODO: 上下颠倒玩家模型
+            StateController.Instance.ExecuteRepeated(0.5f, 60.0f, () => 
+            {
+                Player.Instance.transform.rotation = Quaternion.Euler(-180, 0, 0);
+            });
         }
     }
 }

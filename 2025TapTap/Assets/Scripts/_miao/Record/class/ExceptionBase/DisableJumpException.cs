@@ -8,7 +8,8 @@ namespace miao {
     {
         public override void OnCollect(GameObject collector, RecordData recordData)
         {
-            // TODO: 禁用跳跃键
+            // TODO: 修改背景音乐为无人区
+            
         }
     }
 }

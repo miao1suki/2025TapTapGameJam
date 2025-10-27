@@ -9,6 +9,12 @@ namespace miao
         public override void OnCollect(GameObject collector, RecordData recordData)
         {
             // TODO: ´ò±âÍæ¼Ò
+            Player.Instance.transform.localScale = new Vector3(2, 0.01f, 2);
+
+            StateController.Instance.ExecuteAfterCoroutine(60.0f, () =>
+            {
+                Player.Instance.transform.localScale = new Vector3(1, 1, 1);
+            });
         }
     }
 }

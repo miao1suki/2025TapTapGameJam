@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 198038306}
   m_Layer: 0
   m_Name: camWater
-  m_TagString: Untagged
+  m_TagString: CamWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3643,9 +3643,7 @@ MonoBehaviour:
   dayDurationInSeconds: 600
   rotationSpeed: 1
   lights:
-  - lightName: L1
-    category: test
-    light: {fileID: 104482809}
+  - light: {fileID: 104482809}
     nightIntensity: 0.3
   LightSpeed: 0.8
 --- !u!4 &1538523919

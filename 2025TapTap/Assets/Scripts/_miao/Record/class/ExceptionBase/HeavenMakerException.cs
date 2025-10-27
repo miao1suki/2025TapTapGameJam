@@ -1,3 +1,4 @@
+using miao.day_and_night;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,11 @@ namespace miao
         public override void OnCollect(GameObject collector, RecordData recordData)
         {
             // TODO: ÌìÌÃÖÆÔì
+            DayAndNight.Instance.dayDurationInSeconds = 3.0f;
+            StateController.Instance.ExecuteAfterCoroutine(120.0f,()=> 
+            {
+                DayAndNight.Instance.dayDurationInSeconds = 600.0f;
+            });
         }
     }
 }

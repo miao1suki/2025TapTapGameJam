@@ -8,6 +8,7 @@ TagManager:
   - Pullable
   - Water
   - RespawnPoint
+  - CamWater
   layers:
   - Default
   - TransparentFX
