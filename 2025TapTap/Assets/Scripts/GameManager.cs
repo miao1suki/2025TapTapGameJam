@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour
 
         ScoreTexe.SetActive(true);
 
-        Player.Instance.transform.position = new Vector3(0,5,0);
+        Player.Instance.transform.position = new Vector3(-646, 2, 725);
         Player.Instance.transform.rotation = Quaternion.Euler(0, -60, 0);
 
 
