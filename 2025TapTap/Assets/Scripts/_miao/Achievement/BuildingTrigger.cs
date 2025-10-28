@@ -10,7 +10,7 @@ public class BuildingTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Checker.Instance.Done(Checker.Instance.achievement5);
-            this.gameObject.SetActive(false);
+            this.enabled = false;
         }
     }
 }
