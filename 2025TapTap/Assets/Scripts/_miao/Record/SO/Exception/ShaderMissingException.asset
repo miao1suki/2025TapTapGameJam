@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea22178a18898845b695eb26da96b03, type: 3}
   m_Name: ShaderMissingException
   m_EditorClassIdentifier: 
+  errorMaterial: {fileID: 2100000, guid: 5dc61fc7bc0982443b97bc02e4121223, type: 2}
+  effectDuration: 120

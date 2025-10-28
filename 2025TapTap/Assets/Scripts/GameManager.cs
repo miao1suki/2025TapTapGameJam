@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> dontDestroyObjects = new List<GameObject>();
-    [SerializeField] private RenderSettingsSO _renderseter;
+    [SerializeField] public RenderSettingsSO _renderseter;
     [SerializeField] private GameObject GameGlobalMenu;
     [SerializeField] private GameObject ScoreTexe;
     //外部访问 RenderSettingsSO 的属性
