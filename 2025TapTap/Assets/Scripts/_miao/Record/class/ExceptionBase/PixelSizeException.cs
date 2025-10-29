@@ -13,11 +13,13 @@ namespace miao
             GameManager.Instance._renderseter.RT_Pixel = 1;
             GameManager.Instance._renderseter.ApplySettings();
 
-            StateController.Instance.ExecuteAfterCoroutine(60, () => 
+            StateController.Instance.ExecuteAfter(60, () => 
             {
                 GameManager.Instance.autoPixelControl = true;
                 GameManager.Instance._renderseter.RT_Size = 7.0f;
+                GameManager.Instance._renderseter.RT_Pixel = 7;
                 GameManager.Instance.setCamSize();
+                GameManager.Instance._renderseter.ApplySettings();
             });
         }
     }

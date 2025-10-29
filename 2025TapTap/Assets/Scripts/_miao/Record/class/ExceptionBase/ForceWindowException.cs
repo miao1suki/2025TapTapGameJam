@@ -20,7 +20,7 @@ namespace miao
             //Debug.Log("[ForceWindowException] 切换为窗口模式 (320×180)");
 
             // 一段时间后恢复
-            StateController.Instance.ExecuteAfterCoroutine(60, () =>
+            StateController.Instance.ExecuteAfter(60, () =>
             {
                 Screen.SetResolution(originalWidth, originalHeight, true);
                 Screen.fullScreenMode = FullScreenMode.FullScreenWindow;

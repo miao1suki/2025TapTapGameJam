@@ -44,6 +44,12 @@ namespace miao
             if (other.CompareTag("Player"))
             {
                 Collect(other.gameObject);
+
+                AudioSource audio = GetComponent<AudioSource>();
+                if (audio != null)
+                {
+                    audio.PlayOneShot(audio.clip);
+                }
             }
         }
 

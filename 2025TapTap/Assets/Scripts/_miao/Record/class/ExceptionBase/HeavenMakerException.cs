@@ -12,7 +12,7 @@ namespace miao
         {
             // TODO: ÌìÌÃÖÆÔì
             DayAndNight.Instance.dayDurationInSeconds = 3.0f;
-            StateController.Instance.ExecuteAfterCoroutine(120.0f,()=> 
+            StateController.Instance.ExecuteAfter(60.0f,()=> 
             {
                 DayAndNight.Instance.dayDurationInSeconds = 600.0f;
             });

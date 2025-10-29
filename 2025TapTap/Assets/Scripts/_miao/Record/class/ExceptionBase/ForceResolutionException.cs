@@ -32,12 +32,10 @@ namespace miao
             //Debug.Log($" [ForceResolutionException] 分辨率已强制修改为 720×2560");
 
             // 延迟恢复
-            StateController.Instance.StartCoroutine(
-                StateController.Instance.ExecuteAfterCoroutine(60, () =>
-                {
-                    RestoreResolution();
-                })
-            );
+            StateController.Instance.ExecuteAfter(60.0f, () => 
+            {
+                RestoreResolution();
+            });
         }
 
         private void RestoreResolution()

@@ -43,8 +43,6 @@ namespace miao.day_and_night
 
         private bool nightLightsTriggered = false;
         private bool dayLightsTriggered = false;
-        private float fpsTimer = 0f;
-        private int frameCount = 0;
 
         public static DayAndNight Instance;
         private void Awake()

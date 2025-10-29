@@ -349,6 +349,8 @@ namespace miao
                         int lostHealth = Mathf.FloorToInt(tickCount) * 10;
                         Player.Instance.ChangePlayerHealth(-lostHealth);
                         CheckPlayerHealth();
+
+                        AudioManager.Instance.PlayAudio("玩家落地声（较为清脆的啪嗒声）", Player.Instance.transform.position,false,0.8f);
                     }
                 }
 

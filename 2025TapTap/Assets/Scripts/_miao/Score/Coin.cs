@@ -26,6 +26,12 @@ public class Coin : MonoBehaviour
             ScoreTrigger.Instance.AddScore("»ñµÃ½ð±Ò£¡",100);
             ScoreTrigger.Instance.AddMultiplier();
             this.gameObject.SetActive(false);
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio != null)
+            {
+                audio.PlayOneShot(audio.clip);
+            }
+
         }
     }
 }

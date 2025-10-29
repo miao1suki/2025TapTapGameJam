@@ -32,6 +32,12 @@ namespace miao
         {
             audioSource = GetComponent<AudioSource>();
             audioSource.playOnAwake = false;
+
+            // 开启 3D 空间音效
+            audioSource.spatialBlend = 1f; // 1 = 完全3D，0 = 完全2D
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic; // 使用对数衰减
+            audioSource.minDistance = 1f; // 最近距离不衰减
+            audioSource.maxDistance = 20f; // 最远距离声音衰减到0
         }
 
         private void Start()

@@ -12,16 +12,61 @@ public class StateController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    private void Start()
+    private void OnDestroy()
+    { 
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(SceneManager.GetActiveScene().name != "Title")
+        // 场景加载完成后执行
+        if (scene.name != "Title")
         {
-            camWater = GameObject.FindGameObjectWithTag("CamWater");
+            StartCoroutine(FindCamWaterWhenReady());
         }
     }
+    private IEnumerator FindCamWaterWhenReady()
+    {
+        // 等一帧确保所有物体都初始化完毕
+        yield return null;
 
-    public IEnumerator ExecuteAfterCoroutine(float delay, Action action)
+        camWater = FindInactiveObjectByTag("CamWater");  
+    }
+
+
+    private GameObject FindInactiveObjectByTag(string tag)
+    {
+        var rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+        foreach (var root in rootObjects)
+        {
+            var found = FindInChildrenByTag(root.transform, tag);
+            if (found != null)
+                return found.gameObject;
+        }
+        return null;
+    }
+    private Transform FindInChildrenByTag(Transform parent, string tag)
+    {
+        if (parent.CompareTag(tag))
+            return parent;
+
+        foreach (Transform child in parent)
+        {
+            var result = FindInChildrenByTag(child, tag);
+            if (result != null)
+                return result;
+        }
+        return null;
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void ExecuteAfter(float delay, Action action)
+    {
+        StartCoroutine(ExecuteAfterCoroutine(delay, action));
+    }
+    private IEnumerator ExecuteAfterCoroutine(float delay, Action action)
     {
         yield return new WaitForSeconds(delay);
         action?.Invoke();

@@ -25,7 +25,7 @@ namespace miao
                 }
                 
             });
-            StateController.Instance.ExecuteAfterCoroutine(32.0f, () => 
+            StateController.Instance.ExecuteAfter(32.0f, () => 
             {
                 Player.Instance.transform.localScale = new Vector3(1, 1, 1);
             });

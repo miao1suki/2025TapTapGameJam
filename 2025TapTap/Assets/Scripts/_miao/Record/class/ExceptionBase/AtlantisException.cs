@@ -17,7 +17,7 @@ namespace miao
                 StateController.Instance.camWater.SetActive(true);
             }
 
-            StateController.Instance.ExecuteAfterCoroutine(60.0f, () => 
+            StateController.Instance.ExecuteAfter(60.0f, () => 
             {
                 if (StateController.Instance.camWater)
                 {

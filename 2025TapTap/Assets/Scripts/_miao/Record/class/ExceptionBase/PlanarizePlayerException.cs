@@ -11,7 +11,7 @@ namespace miao
             // TODO: 让玩家模型变成平面         
             Player.Instance.transform.localScale = new Vector3(0.08f, 1, 1);
 
-            StateController.Instance.ExecuteAfterCoroutine(60.0f, () =>
+            StateController.Instance.ExecuteAfter(60.0f, () =>
             {
                 Player.Instance.transform.localScale = new Vector3(1, 1, 1);
             });
