@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 namespace miao
 {
@@ -8,7 +9,6 @@ namespace miao
     {
         public static RecordManager Instance;
         private HashSet<string> collectedRecords = new HashSet<string>();
-
         private string savePath;
 
         private void Awake()
@@ -16,11 +16,7 @@ namespace miao
             Instance = this;
             savePath = Path.Combine(Application.persistentDataPath, "records.json");
             LoadRecords();
-        }
-
-        private void Update()
-        {
-           // Debug.Log("已收集记录: " + string.Join(",", collectedRecords));
+            UpdateRecordText(); //  启动时更新文字
         }
 
         public bool IsCollected(string recordID)
@@ -34,6 +30,7 @@ namespace miao
             {
                 collectedRecords.Add(data.recordID);
                 SaveRecords();
+                UpdateRecordText(); //  每次收集新物品时更新显示
             }
         }
 
@@ -43,9 +40,9 @@ namespace miao
             {
                 collectedRecords.Remove(data.recordID);
                 SaveRecords();
+                UpdateRecordText(); //  如果取消收集，也更新显示
             }
         }
-
 
         private void SaveRecords()
         {
@@ -66,6 +63,22 @@ namespace miao
                 RecordSaveData saveData = JsonUtility.FromJson<RecordSaveData>(json);
                 foreach (var id in saveData.collectedIDs)
                     collectedRecords.Add(id);
+            }
+        }
+
+        /// <summary>
+        /// 更新 UI 上的文本
+        /// </summary>
+        private void UpdateRecordText()
+        {
+            if (GameManager.Instance != null && GameManager.Instance.RecordTexe != null)
+            {
+                int count = collectedRecords.Count;
+                GameManager.Instance.RecordTexe.GetComponent<TextMeshProUGUI>().text = $"已收集的奖杯：{count}/15";
+            }
+            else
+            {
+                Debug.LogWarning("RecordText 未在 GameManager 中正确设置。");
             }
         }
     }

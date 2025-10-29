@@ -25,12 +25,10 @@ public class Coin : MonoBehaviour
         {
             ScoreTrigger.Instance.AddScore("获得金币！",100);
             ScoreTrigger.Instance.AddMultiplier();
-            this.gameObject.SetActive(false);
-            AudioSource audio = GetComponent<AudioSource>();
-            if (audio != null)
-            {
-                audio.PlayOneShot(audio.clip);
-            }
+
+            AudioManager.Instance.PlayAudio("金币短",transform.position,false,0.8f);
+
+            this.gameObject.SetActive(false);       
 
         }
     }

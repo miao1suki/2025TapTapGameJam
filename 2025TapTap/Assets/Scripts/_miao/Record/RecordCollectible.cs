@@ -45,11 +45,7 @@ namespace miao
             {
                 Collect(other.gameObject);
 
-                AudioSource audio = GetComponent<AudioSource>();
-                if (audio != null)
-                {
-                    audio.PlayOneShot(audio.clip);
-                }
+                AudioManager.Instance.PlayAudio("出现异常时的音效", transform.position, false, 0.8f);
             }
         }
 

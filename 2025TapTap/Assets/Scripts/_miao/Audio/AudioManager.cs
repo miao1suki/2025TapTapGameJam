@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace miao
 {
@@ -32,6 +33,7 @@ namespace miao
                 audioSourcePool.Enqueue(temp);
             }
         }
+       
 
         private void Update()
         {
@@ -42,15 +44,23 @@ namespace miao
         /// <summary>
         /// 播放音效，可自动使用对象池创建临时 AudioSource
         /// </summary>
-        public void PlayAudio(string audioName, Vector3 position, bool isLoop = false, float volume = 1f)
+        public AudioSource PlayAudio(string audioName, Vector3 position, bool isLoop = false, float volume = 1f)
         {
+            AudioSource source = GetAudioSourceFromPool();
+            StartCoroutine(PlayAudioCoroutine(source, audioName, position, isLoop, volume));
+            return source;
+        }
+
+        private IEnumerator PlayAudioCoroutine(AudioSource source, string audioName, Vector3 position, bool isLoop, float volume)
+        {
+            yield return null;
+
             if (!audioClips.TryGetValue(audioName, out AudioClip clip))
             {
                 Debug.LogWarning("音频文件未找到：" + audioName);
-                return;
+                yield break;
             }
 
-            AudioSource source = GetAudioSourceFromPool();
             source.transform.position = position;
             source.clip = clip;
             source.loop = isLoop;
@@ -99,6 +109,6 @@ namespace miao
             source.clip = null;
             source.loop = false;
             audioSourcePool.Enqueue(source);
-        }
+        }       
     }
 }

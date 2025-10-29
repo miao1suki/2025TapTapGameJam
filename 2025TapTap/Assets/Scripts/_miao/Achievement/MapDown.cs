@@ -17,7 +17,7 @@ public class MapDown : MonoBehaviour
             if (nearestRespawn != null)
             {
                 // 传送玩家
-                Player.Instance.transform.position = nearestRespawn.position;
+                Player.Instance.transform.position =  new Vector3(nearestRespawn.position.x, nearestRespawn.position.y + 2, nearestRespawn.position.z);
                 Player.Instance.transform.rotation = nearestRespawn.rotation; //同步朝向
             }
             else

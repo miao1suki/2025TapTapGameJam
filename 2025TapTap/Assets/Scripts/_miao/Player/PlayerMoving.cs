@@ -1,4 +1,5 @@
 ﻿using AchievementSystem;
+using miao.day_and_night;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,6 +54,17 @@ namespace miao
         private bool wasAirborne = false;
         private bool staySet = false; // 记录 Animator Stay 是否开启
         private float airborneDamageStartTime = 0.2f; // 记录滞空造成伤害的间隔时间
+        private bool windKey = false;
+        private AudioSource windAudioSource;
+
+        // 哈气音频冷却
+        private float breatheCooldown = 1f;   // 冷却时间（秒）
+        private float lastBreatheTime = -999f; // 上次播放时间
+
+        public Light light_1;
+        public Light light_2;
+        public Light light_3;
+        public Light light_4;
 
         private void Awake()
         {
@@ -73,6 +85,11 @@ namespace miao
                 centerOfMass = t;
                 rb.centerOfMass = centerOfMass.localPosition;
             }
+
+            light_1.enabled = false;
+            light_2.enabled = false;
+            light_3.enabled = false;
+            light_4.enabled = false;
         }
 
         void Update()
@@ -82,12 +99,19 @@ namespace miao
             CheckGrounded();
             HandleAirborne(); // 每帧处理滞空系统
 
-            // F 键触发攻击
+            // F 键触发攻击 + 哈气音频（带1秒冷却）
             if (Input.GetKeyDown(KeyCode.F))
             {
-                ScoreTrigger.Instance.AddScore("！！哈气！！",6);
+                ScoreTrigger.Instance.AddScore("！！哈气！！", 6);
                 ScoreTrigger.Instance.AddMultiplier();
                 StartCoroutine(TriggerAnimatorBool("Fight", 0.1f));
+
+                // 检查冷却后播放哈气音频
+                if (Time.time - lastBreatheTime >= breatheCooldown)
+                {
+                    lastBreatheTime = Time.time;
+                    AudioManager.Instance.PlayAudio("猫哈气声", transform.position, false, 1f);
+                }
             }
         }
 
@@ -107,6 +131,7 @@ namespace miao
 
         private void FixedUpdate()
         {
+            CheckTimeForLight();
             if (!rb) return;
 
             Vector3 moveDir = Vector3.zero;
@@ -187,6 +212,27 @@ namespace miao
             animator.SetFloat("MoveSpeed", speedSqr, 0.1f, Time.fixedDeltaTime);
 
             HandleJump();
+        }
+
+        private void CheckTimeForLight()
+        {
+            if (!DayAndNight.Instance || SceneManager.GetActiveScene().name == "Title") return;
+
+            if(0.25f<=DayAndNight.Instance.currentTime && DayAndNight.Instance.currentTime<=0.75f)
+            {
+                light_1.enabled = true;
+                light_2.enabled = true;
+                light_3.enabled = true;
+                light_4.enabled = true;
+            }
+            else 
+            {
+                light_1.enabled = false;
+                light_2.enabled = false;
+                light_3.enabled = false;
+                light_4.enabled = false;
+            }
+            
         }
 
         private void CheckGrounded()
@@ -301,6 +347,13 @@ namespace miao
                 // --- 滞空开始延迟 ---
                 if (airborneTime > airborneStartDelay)
                 {
+                    //播放音频
+                    if (!windKey)
+                    {
+                        windAudioSource = AudioManager.Instance.PlayAudio("玩家滞空时产生的风声", Player.Instance.transform.position, true, 1);
+                        windKey = true;
+                    }
+
                     // 加分逻辑
                     scoreTimer += Time.deltaTime;
                     multiplierTimer += Time.deltaTime;
@@ -340,6 +393,13 @@ namespace miao
                     animator.SetBool("Stay", false);
                     staySet = false;
 
+                    if (windAudioSource != null)
+                    {
+                        AudioManager.Instance.StopAudio(windAudioSource);
+                        windAudioSource = null;
+                    }
+                    windKey = false;
+
                     // 落地时结算滞空扣血
                     float extraTime = airborneTime - airborneStartDelay;
                     if (extraTime > 0f)
@@ -349,7 +409,6 @@ namespace miao
                         int lostHealth = Mathf.FloorToInt(tickCount) * 10;
                         Player.Instance.ChangePlayerHealth(-lostHealth);
                         CheckPlayerHealth();
-
                         AudioManager.Instance.PlayAudio("玩家落地声（较为清脆的啪嗒声）", Player.Instance.transform.position,false,0.8f);
                     }
                 }

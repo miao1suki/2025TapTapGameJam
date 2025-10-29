@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31878e531428c345917974455a7454c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 1.5
 --- !u!65 &481750348191277364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77,7 +78,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c9c7cd3f2210e904dbc389d0ae9dea96, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -87,7 +88,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.0001
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

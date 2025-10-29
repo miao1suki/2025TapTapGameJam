@@ -43,5 +43,6 @@ public class Checker : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Title") return;
 
         AchievementManager.Enable(achievement);
+        AudioManager.Instance.PlayAudio("成就完成时的奖励音效（欢快）",Player.Instance.transform.position,false,0.9f);
     }
 }

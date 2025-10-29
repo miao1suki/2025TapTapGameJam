@@ -1,6 +1,7 @@
 using DG.Tweening;
 using ScoreSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -15,6 +16,8 @@ namespace UI
 
         [SerializeField] private GameObject scoreEffect;
         private Tweener timeBarTweener;
+
+        private AudioSource countingAudioSource;
 
         private void Start() => Init();
 
@@ -38,12 +41,38 @@ namespace UI
         
             scoreText.Clear();
             multiplierCell.Multiplier = 0;
+
+            // 计分阶段结束：停止计数器声 + 播放结算奖励音
+            if (countingAudioSource != null)
+            {
+                miao.AudioManager.Instance.StopAudio(countingAudioSource);
+                countingAudioSource = null;
+
+                miao.AudioManager.Instance.PlayAudio(
+                    "数字增长完成后结算的奖励音效（欢快）",
+                    transform.position,
+                    false,
+                    0.5f
+                );
+            }
+
         }
         public void IncreaseScore(int score)
         {
             if (scoreEffect != null)
             {
                 scoreEffect.SetActive(true);
+            }
+
+            // 如果还没有播放计数器音效，就开始播放
+            if (countingAudioSource == null && SceneManager.GetActiveScene().name !="Title")
+            {
+                countingAudioSource = miao.AudioManager.Instance.PlayAudio(
+                    "数字增长时，数字不停跳动的计数器声（欢快、紧张）",
+                    transform.position,
+                    true,
+                    0.1f
+                );
             }
 
             if (multiplierCell.Multiplier == 0)

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public RenderSettingsSO _renderseter;
     [SerializeField] private GameObject GameGlobalMenu;
     [SerializeField] private GameObject ScoreTexe;
+    [SerializeField] public GameObject RecordTexe;
+    [SerializeField] private GameObject LoadingImage;
     //外部访问 RenderSettingsSO 的属性
     public RenderSettingsSO Renderseter
     {
@@ -224,6 +226,8 @@ public class GameManager : MonoBehaviour
         Player.Instance.GetComponent<PhysicsBody>().useGravity = true;
         SetConstraints(false,true);
 
+        AudioManager.Instance.PlayAudio("标题界面点击进入游戏后，加载界面音效（沉闷、短暂风声呼一声刮过去）",Player.Instance.transform.position,false,0.8f);
+
 
         // 异步加载场景
         StartCoroutine(LoadSceneAsync("miao_testScene1"));
@@ -278,9 +282,12 @@ public class GameManager : MonoBehaviour
         setCamSize();
 
         ScoreTexe.SetActive(true);
+        RecordTexe.SetActive(true);
 
         Player.Instance.transform.position = new Vector3(-646, 2, 725);
         Player.Instance.transform.rotation = Quaternion.Euler(0, -60, 0);
+
+        LoadingImage.SetActive(false);
 
 
     }

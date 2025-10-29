@@ -26,6 +26,9 @@ namespace miao
         // 加分冷却计时器（Only for scoring）
         private float scoreCooldownTimer = 0f;
 
+        private bool hasPlayedSound = false; // 防止在舌头未收回前重复播放
+        public string tongueSoundName = "舌头吐出后，粘液粘黏声"; // 音效名
+
         void Start()
         {
             if (tongueModel == null || tongueRoot == null)
@@ -100,6 +103,24 @@ namespace miao
             Vector3 newPos = baseLocalPosition;
             newPos.z = baseLocalPosition.z + currentForward;
             tongueModel.localPosition = newPos;
+
+            HandleTongueSound();
+        }
+
+        void HandleTongueSound()
+        {
+            // 当舌头开始伸出时且音效还没播放
+            if (isExtending && !hasPlayedSound && currentStretch <= 0.01f)
+            {
+                hasPlayedSound = true;
+                AudioManager.Instance?.PlayAudio(tongueSoundName, tongueRoot.position);
+            }
+
+            // 当舌头完全收回时，允许下次播放
+            if (!isExtending && currentStretch <= 0.01f)
+            {
+                hasPlayedSound = false;
+            }
         }
 
         private void OnDrawGizmos()

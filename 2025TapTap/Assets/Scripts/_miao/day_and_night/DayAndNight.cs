@@ -39,7 +39,7 @@ namespace miao.day_and_night
         [Range(0.01f, 2f)]
         [SerializeField] private float LightSpeed = 0.1f;
 
-        private float currentTime = 0;
+        public float currentTime = 0;
 
         private bool nightLightsTriggered = false;
         private bool dayLightsTriggered = false;
@@ -104,6 +104,9 @@ namespace miao.day_and_night
 
         private void UpdateLight()
         {
+            if (dayDurationInSeconds <= 60f)
+                return;
+
             bool isNight = currentTime >= 0.25f && currentTime <= 0.75f;
 
             foreach (var lightData in lights)
@@ -151,7 +154,7 @@ namespace miao.day_and_night
 
             foreach (var l in allLights)
             {
-                if (l == null) continue;
+                if (l == null || l.gameObject.CompareTag("PlayerLight")) continue;
                 if (l.type == LightType.Point || l.type == LightType.Spot)
                 {
                     LightData data = new LightData
