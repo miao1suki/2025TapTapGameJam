@@ -2006,7 +2006,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2a7a5cff079135246888e681ee7e0a0a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 70.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a7a5cff079135246888e681ee7e0a0a,
         type: 3}
@@ -38526,6 +38526,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1438870458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1440662440
+GameObject:
+  m_ObjectHideFlags: 19
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1440662442}
+  - component: {fileID: 1440662441}
+  m_Layer: 0
+  m_Name: PrefabPainterSceneSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1440662441
+MonoBehaviour:
+  m_ObjectHideFlags: 19
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440662440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0d71238b38a4a38b35b955fbf5c019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentForPrefabs: {fileID: 0}
+--- !u!4 &1440662442
+Transform:
+  m_ObjectHideFlags: 19
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440662440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1447025782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57996,3 +58041,4 @@ SceneRoots:
   - {fileID: 1548654985}
   - {fileID: 234324855}
   - {fileID: 1028523197}
+  - {fileID: 1440662442}
