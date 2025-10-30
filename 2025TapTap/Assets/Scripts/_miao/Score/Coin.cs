@@ -24,7 +24,6 @@ public class Coin : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             ScoreTrigger.Instance.AddScore("获得金币！",100);
-            ScoreTrigger.Instance.AddMultiplier();
 
             AudioManager.Instance.PlayAudio("金币短",transform.position,false,0.8f);
 
