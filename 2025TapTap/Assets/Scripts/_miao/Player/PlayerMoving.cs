@@ -218,7 +218,7 @@ namespace miao
         {
             if (!DayAndNight.Instance || SceneManager.GetActiveScene().name == "Title") return;
 
-            if(0.25f<=DayAndNight.Instance.currentTime && DayAndNight.Instance.currentTime<=0.75f)
+            if(0.35f<=DayAndNight.Instance.currentTime && DayAndNight.Instance.currentTime<=0.65f)
             {
                 light_1.enabled = true;
                 light_2.enabled = true;

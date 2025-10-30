@@ -7,6 +7,7 @@ using UnityEditor;
 using UI;
 using ScoreSystem;
 using AchievementSystem;
+using TMPro;
 
 
 public class GameManager : MonoBehaviour
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     public bool autoPixelControl = true;
 
     public ScoreText text;
+    public TextMeshProUGUI ColText;
 
     public static GameManager Instance;//µ¥Àý
     private void OnValidate()
@@ -99,6 +101,11 @@ public class GameManager : MonoBehaviour
     public void SetScoreText(int score)
     {
         text.Value = score;
+    }
+
+    public void SetTextCoolor(Color color)
+    {
+        ColText.color = color;
     }
 
     public void ResetPos()

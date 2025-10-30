@@ -11,6 +11,14 @@ namespace miao {
             // TODO: 设置分数为 -114514
             //分数异常，设置玩家分数为-114514
             GameManager.Instance.SetScoreText(-114514);
+
+            GameManager.Instance.SetTextCoolor(new Color(255,0,0));
+
+            StateController.Instance.ExecuteAfter(10.0f, () =>
+            {
+                GameManager.Instance.SetTextCoolor(new Color(255, 255, 255));
+            });
+
         }
     }
 }

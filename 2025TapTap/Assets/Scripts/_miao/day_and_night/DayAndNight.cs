@@ -64,7 +64,7 @@ namespace miao.day_and_night
             //事件操作
             //////////////////////////////////////////////////////
             // 夜晚开始
-            if (currentTime >= 0.25f && !nightLightsTriggered)
+            if (currentTime >= 0.35f && !nightLightsTriggered)
             {
                 nightLightsTriggered = true;
                 dayLightsTriggered = false;
@@ -72,7 +72,7 @@ namespace miao.day_and_night
             }
 
             // 白天开始
-            if (currentTime >= 0.75f && !dayLightsTriggered)
+            if (currentTime >= 0.65f && !dayLightsTriggered)
             {
                 dayLightsTriggered = true;
                 nightLightsTriggered = false;
@@ -107,7 +107,7 @@ namespace miao.day_and_night
             if (dayDurationInSeconds <= 60f)
                 return;
 
-            bool isNight = currentTime >= 0.25f && currentTime <= 0.75f;
+            bool isNight = currentTime >= 0.35f && currentTime <= 0.65f;
 
             foreach (var lightData in lights)
             {

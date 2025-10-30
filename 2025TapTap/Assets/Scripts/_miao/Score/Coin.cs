@@ -8,12 +8,16 @@ public class Coin : MonoBehaviour
     public float rotateSpeed = 60f;
     public float floatAmplitude = 0.25f;
     public float floatSpeed = 2f;
-
+    public bool get = false;
     private Vector3 startPos;
     private void Awake()
     {
-        startPos = transform.position; // Awake 时记录位置，保证在 Instantiate 后
+        startPos = transform.position; // Awake 时记录位置，保证在 Instantiate 后        
+        get = false;
+
+        this.enabled = false;
     }
+   
     private void Update()
     {
         transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
@@ -23,11 +27,16 @@ public class Coin : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            ScoreTrigger.Instance.AddScore("获得金币！",100);
+            if(!get)
+            {
+                ScoreTrigger.Instance.AddScore("获得金币！", 100);
 
-            AudioManager.Instance.PlayAudio("金币短",transform.position,false,0.8f);
+                AudioManager.Instance.PlayAudio("金币短", transform.position, false, 0.8f);
 
-            this.gameObject.SetActive(false);       
+                get = true;
+                this.gameObject.SetActive(false);
+            }
+              
 
         }
     }
