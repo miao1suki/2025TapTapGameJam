@@ -113,12 +113,29 @@ InitTestScene*.unity*
 /Assets/Resources/Ignore/**/*.hdr
 /Assets/Resources/Ignore/**/*.wav
 
+/Assets/Ignore/**/*.png
+/Assets/Ignore/**/*.jpg
+/Assets/Ignore/**/*.jpeg
+/Assets/Ignore/**/*.tga
+/Assets/Ignore/**/*.psd
+/Assets/Ignore/**/*.tif
+/Assets/Ignore/**/*.exr
+/Assets/Ignore/**/*.hdr
+/Assets/Ignore/**/*.wav
+
 # 忽略模型
 /Assets/Resources/Ignore/**/*.fbx
 /Assets/Resources/Ignore/**/*.obj
 /Assets/Resources/Ignore/**/*.blend
 /Assets/Resources/Ignore/**/*.dae
 /Assets/Resources/Ignore/**/*.3ds
+
+/Assets/Ignore/**/*.fbx
+/Assets/Ignore/**/*.obj
+/Assets/Ignore/**/*.blend
+/Assets/Ignore/**/*.dae
+/Assets/Ignore/**/*.3ds
+
 
 # 注意：不忽略 .meta 文件
 # 所以 Prefab 对这些资源的引用仍然有效
