@@ -1837,11 +1837,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -10.8159
-  far clip plane: 26.259415
+  near clip plane: -5.125523
+  far clip plane: 19.732218
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 3
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3952,7 +3952,7 @@ Camera:
   far clip plane: 50
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 3
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2

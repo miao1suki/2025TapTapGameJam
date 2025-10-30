@@ -75,6 +75,12 @@ namespace miao
             {
                 int count = collectedRecords.Count;
                 GameManager.Instance.RecordTexe.GetComponent<TextMeshProUGUI>().text = $"已收集的奖杯：{count}/15";
+
+                if(count == 15)
+                {
+                    Checker.Instance.Done(Checker.Instance.achievement3);
+                }
+
             }
             else
             {

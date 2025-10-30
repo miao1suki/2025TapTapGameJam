@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Record_03
   m_EditorClassIdentifier: 
   recordID: Record_03
-  recordName: "\u7981\u6B62\u8DF3\u8DC3"
+  recordName: "\u7981\u6B62\u8DF3\u8DC3\uFF08\u80CC\u666F\u97F3\u4E50\u4E3A\u65E0\u4EBA\u533A\uFF09"
   musicClip: {fileID: 0}
   exceptionBehavior: {fileID: 11400000, guid: 9c6f5d36399aa6e4db901430f2a44da7, type: 2}
